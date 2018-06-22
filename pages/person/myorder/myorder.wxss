@@ -1,0 +1,199 @@
+/* pages/person/myorder/myorder.wxss */
+.tab-right .right-item{  
+    /* padding-left: 15rpx;   */
+    display: none;  
+}  
+page{
+   background-color: #efeff4;
+}
+ .right-item.active{  
+    display: block;  
+} 
+.tab-right{
+  width: 100%;
+  height: 100%;
+  margin: 0 -10rpx;
+}
+.tab-left{  
+    width: 200rpx;  
+    line-height: 160%;  
+    border-right: solid 1px gray;  
+}  
+.tab-left view{  
+    border-bottom: solid 1px red;  
+}  
+.tab-left .active{  
+    color: #f00;  
+    border-bottom: 1px solid #f00;
+} 
+
+
+::-webkit-scrollbar {/*滚动条里面小方块*/
+        width: 0;
+        height: 0;
+        color: transparent;
+}
+ .container {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  font-size: 26rpx;
+  flex-direction: column;
+ background-color: #efeff4;
+} 
+#hgControl{
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    bottom: auto;
+
+}
+.gwcpross{
+  text-align: center;
+  margin-top:20rpx;
+  font-size: 26rpx;
+}
+
+.hide{
+ display: none;
+}
+.show{ 
+ display: block;
+}
+.mui-control-item{
+  line-height: 70rpx;
+  display: table-cell;
+  overflow: hidden;
+  width: 20%;
+  float: left;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mui-scroll-wrapper{
+    z-index: 2;
+    /* margin-top: rpx; */
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+}
+.hg-list-cell {
+    background-color: #fff;
+    /* padding: 0 12px; */
+    position: relative;
+    margin: 10rpx 0;
+}
+
+.hg-list-view {
+    position: relative;
+    padding: 25rpx 24rpx;
+     overflow: hidden;
+}
+.mui-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.hg-sub-list {
+    padding: 0 24rpx;
+}
+.hg-link{
+    padding: 10rpx 0;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+.hg-link:last-child{
+    border-bottom: none;
+}
+.hg-img {
+    line-height: 150rpx;
+    width: 150rpx;
+    height: 150rpx;
+    margin-right: 30rpx;
+}
+.mui-pull-left {
+    float: left;
+}
+.miaoshu{
+    font-size: 24rpx;
+    margin-top: 0;
+    margin-bottom: 18rpx;
+    color: #8f8f94;
+}
+.hg-numbox-cell {
+    width: 8%;
+    color: #000;
+   float:right;
+}
+.hg-link .mui-media-body {
+    overflow: hidden;
+
+}
+.miaoshu{
+  width: 90%;
+  float:left;
+}
+.shop-price,.hg-total-price{
+  font-size: 24rpx;
+  color: rgb(235, 39, 13);
+}
+.hg-list-view {
+    position: relative;
+    padding: 12rpx 20rpx;
+    font-size: 22rpx;
+}
+.mui-pull-right {
+    float: right;
+}
+.boith{
+  padding-right: 20rpx;
+}
+.hg-list-btn {
+    text-align: right;
+    margin-top: -5px;
+    background-color: #fff;
+    position: relative;
+    padding: 9px 12px;
+    overflow: hidden;
+    margin-right: -10px;
+}
+.hg-btn {
+    color: rgb(152, 152, 152);
+    padding: 4px 15px;
+    border-radius: 24px;
+    border: 1px solid rgb(152, 152, 152);
+    background-color: #fff;
+    display: inline-block;
+    margin-right: 10px;
+}
+.hg-list-bottom{
+border-top:1px solid #ccc;
+
+}
+.hg-list-top {
+  border-bottom: 1px solid #ccc;
+}
+
+
+#content_empty .tip-empty-box {
+    text-align: center;
+    padding: 50rpx 0px;
+}
+#content_empty .tip-empty-box image{
+    width: 400rpx;
+    height:350rpx;
+    display: block;
+    margin: 0 auto;
+}
+.tip-empty-txt{
+
+  padding-top: 30rpx;
+  font-size: 28rpx;
+  margin-bottom: 10px;
+  color: #8f8f94;
+}

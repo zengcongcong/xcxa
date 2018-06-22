@@ -1,0 +1,83 @@
+<!--pages/person/myorder/myorder.wxml-->
+<view class='container'>
+    <view id="hgControl" class="mui-slider-indicator" class="tab-left" data-index ="index"  bindtap="tabFun" >
+        <text class="mui-control-item {{curHdIndex=='0'? 'active' : ''}}"data-id="0" data-index="0">全部</text>
+        <text class="mui-control-item {{curHdIndex=='1'? 'active' : ''}}" data-id="1" data-index="1">待付款</text>
+        <text  class="mui-control-item {{curHdIndex=='2'? 'active' : ''}}" data-id="2" data-index="2">待发货</text>
+        <text  class="mui-control-item {{curHdIndex=='3'? 'active' : ''}}" data-id="3"  data-index="3">待收货</text>
+        <text  class="mui-control-item {{curHdIndex=='4'? 'active' : ''}}" data-id="4"  data-index="4">待评价</text>
+    </view>
+   <view class="tab-right">
+   <!-- 1 -->
+         <scroll-view scroll-y="true" class="mui-scroll-wrapper"   lower-threshold="200" bindscrolltolower="srcollHander" bindscroll="scroll"  style="height:100%"> 
+          <view class="mui-scroll" class="right-item  active">
+              <view id="content_list" class="hg-order-box">
+                  <view class="hg-order-list">
+                      <!-- 单个订单 -->
+                      <view class="hg-list-cell"  wx:for='{{goodLists}}' wx:for-item="good" wx:key="good.name" data-id="{{good.id}}" >
+                          <view class="hg-list-top hg-list-view">
+                              <view class="mui-pull-left hg-order-time mui-ellipsis">{{good.order_time}}</view>
+                          </view>
+                          <!-- 内容 -->
+                          <view class="hg-sub-list" bindtap="detail" data-id="{{good.id}}">
+                              <view class="hg-link"  wx:for='{{good.shopinf}}'wx:for-item="itemhg"  data-id="{{itemhg.id}}" data-attr_id = "{{itemhg.attr_id}}">
+                                  <image class="hg-img mui-pull-left"src="https://dev.unionglasses.com/{{itemhg.img_src}}"></image>
+                                  <view class="mui-media-body">
+                                      <view class="mui-ellipsis hg-list-title">{{itemhg.title}}</view>
+                                      <view class="flex-box-align-left mall-cont-detail">
+                                          <view class="miaoshu">
+                                            {{itemhg.desc_short}}</view>                                            <view class="hg-numbox-cell">
+                                            <text>×</text> <text class="hg-detail-numbox">{{itemhg.num}}</text>
+                                          </view>          
+                                      </view>
+                                      <view class="shop-price">
+                                          <text>{{itemhg.sign}}</text><text>{{itemhg.price}}</text>
+                                      </view>
+                                  </view>
+                              </view> 
+                          </view>
+                          <!-- 订单号 -->
+                          <view class="hg-list-bottom hg-list-view">
+                              <view class="mui-pull-left mui-ellipsis hg-order-code">
+                                  <text>订单号：</text><text class="hg-order-code">{{good.order_code}}</text>
+                              </view>
+                              <view class="mui-pull-right hg-order-info" wx>
+                                  <text class="boith">共<text>{{good.total_num}}</text>件</text>
+                                  <text>共计：<text class="hg-total-price">{{good.actual_pay}}</text>元</text>
+                              </view>
+                          </view>
+                          <view  wx:if="{{good.status==1}}"   class="hg-list-bottom hg-list-btn">
+                              <text class="hg-btn  event-topay">付款</text><text class="hg-btn" id="hg-btn" bindtap="delete" data-id = "{{good.id}}">删除</text>
+                          </view>
+                          <view  wx:if="{{good.status==4}}"  class="hg-list-bottom hg-list-btn" bindtap="qrsdh" data-id = "{{good.id}}">
+                              <text class="hg-btn  event-topay">确认收货</text>
+                          </view>
+                           <view  wx:if="{{good.status==5}}"  class="hg-list-bottom hg-list-btn" bindtap="pingjia" data-id = "{{good.id}}">
+                              <text class="hg-btn  event-topay">评价</text>
+                          </view>
+
+
+
+                      </view>
+                  </view>
+              </view>         
+          </view>      
+        </scroll-view>
+        
+   </view>   
+
+</view>
+
+
+  <view id="content_empty" hidden="{{hidden}}">
+            <view class="tip-empty-box">
+                <view>
+                <image  wx:if="{{photos1}}"  src ="/images/empty-order.png"></image>
+                <image  wx:if="{{photos2}}"   src ="/images/empty-comment.png"></image>
+                 </view>
+                <view class="tip-empty-txt">您还没有相关的订单</view>
+            </view>
+
+      </view>
+
+

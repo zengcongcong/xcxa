@@ -1,0 +1,34 @@
+<!-- //弹出层内容，其中的“我知道”中绑定让弹出层消失的函数：bindtap="hide" -->
+<view class="modal-box" hidden="{{flags}}" bindtap="hide">
+
+    <view class="modal-box">
+
+      <view class="modal-content">
+          <view class="search-box">
+              <!-- <text class="sosuo" bindtap="bdsosuo">搜索</text> -->
+              <view class="search-txt">
+                <input type="text" id="search"  class="searchText" placeholder="有问题，点我搜搜看" placeholder-class="center"  bindinput='bindInput'/>
+                <icon  class="btn-search"  type="search" size="16" color="#333"></icon>
+                <!-- <text class="iconfont icon-xingtaiduICON_sousuo-- btn-search"></text>   -->
+              </view>
+          </view>
+     </view>
+     <scroll-view scroll-y="true" style="height:940rpx;" class="shoplist" >
+        <view class="list-info">
+          <view class = "{{ys.lei?'activess big':'big'}}"   wx:for="{{goodLists}}" wx:for-item="ys">
+              <view>
+
+                    <view class="slted">{{ys.name}}</view>
+                    <view wx:for="{{ys.details}}" wx:for-item="detail" data-index="{{index}}">
+                      <view class="list-info-d" bindtap="xzdis"  data-index="{{index}}" data-details="{{ys.id}}" >{{detail.q}}<text class="{{detail.jiantou?' iconfont jt icon-jiantouxia hide':' iconfont jt icon-jiantouxia shows '}}"></text> <text class="{{detail.jiantou?'  iconfont jt icon-jiantoushang shows':'iconfont jt icon-jiantoushang  hide'}} "></text></view>
+                    <view class="{{detail.shows== true? 'actives list-info-x':'hides list-info-x'}}" >{{detail.a}}</view>
+                    </view>
+
+              </view>
+
+            </view>
+        </view>  
+    </scroll-view>
+     <view class="complate"  bindtap="btnSubmit">     <text class="iconfont icon-dianhua"></text>   拨打电话</view>  
+    </view>
+</view>

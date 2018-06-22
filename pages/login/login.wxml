@@ -1,0 +1,21 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  
+    <view class="usermotto"> 
+       <text class="iconfont icon-wode fl"></text>  
+       <input  type="text"  value ="{{names}}" bindinput="userName"  placeholder='请输入姓名' bindblur="bulr"/> 
+          <icon  class ="icons {{shouview?'show':'hide'}} " type="clear" size="18" bindtap='clear'  />
+    </view> 
+     <view class="validate">
+        <text class="iconfont icon-shouji fl"></text>  
+        <input placeholder='请输入手机号' value ="{{phone}}" bindinput="phone"   type="number" class="text fl"   bindblur="bulrs"></input> 
+        <icon  class ="icons {{shouviews?'show':'hide'}} " type="clear" size="18" bindtap='cleardoan'  />
+     </view>
+   
+    <button class="logIn"  open-type="getUserInfo" bindtap="taps"   bindgetuserinfo="onGotUserInfo" >绑定</button>  
+    <view>
+      <navigator  class="young" url='../logs/logs'>新用户注册</navigator>
+    </view>
+</view>
+
+

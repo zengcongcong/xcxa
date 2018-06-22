@@ -1,0 +1,66 @@
+
+    <view class='container'>
+        <view class="search-box">
+            <view class="search-txt">
+                <input type="text" id="search"  class="searchText" placeholder="有问题，点我搜搜看" bindinput='bindInput'/>
+                <text class="iconfont idonss  icon-xingtaiduICON_sousuo-- btn-search" bindtap='sousuo'></text>  
+            </view>
+        </view>  
+        <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-color="	rgba(255, 255, 255,255)" indicator-dots="{{true}}" indicator-color="rgb(0,0,0)" indicator-active-color="#fff" autoplay="true" interval="2000" style='height:{{Height}}'>
+          <swiper-item class="slider-item"  wx:for="{{swiper}}" wx:for-item="item"  mode='widthFix' >
+            <text class="slider-title">{{item.title}}</text>
+            <image src="{{item.img}}" bindload='imgHeight' style ="height:{{hd}};" />          
+          </swiper-item>
+        </swiper>
+        <view class="center-ss">
+          <view class="List">
+              <view class="imagess"  wx:for='{{content}}' wx:for-item="items"  data-index="{{index}}">
+                <navigator url="{{items.xcx_href}}">
+                    <view class="list-box"  ><image src="{{items.img}}"></image></view>  
+                      <text class="titless">{{items.title}}</text>
+                </navigator>
+              </view>
+          </view>
+        </view>
+        <view id="shop-list">
+            <view class="rank-shop-wrap clear">
+                <view class="rank-shop-inner clear">
+                    <view class="titles">
+                        <text class ="text">{{titles}}</text>
+                    </view>
+                    <view class="shop-content">
+                          <view class="content-box table-edl">
+                              <view class="content-text"  wx:for='{{sublists}}' wx:for-item="items1">
+                                   <navigator url="{{items1.xcx_href}}">
+                                      <view class="flex-box-align-center">
+                                          <view class="mui-media-body" >                                          <view class="mui-ellipsis  up">{{items1.title}}</view>
+                                              <view class="mui-ellipsis downs">{{items1.shortInfo}}</view>
+                                          </view>
+                                          <image  class="mall-img-object"  src="{{items1.img}}"></image>
+                                      </view>
+                                  </navigator>
+                              </view>
+                          </view>
+                    </view> 
+                </view>
+            </view>
+        </view>
+
+        <view id="hot-shops" class="hot-shops">
+            <view class="hot-title">
+                <text class="shu-l"></text>
+                <text>热销商品</text>
+                <text class="shu-r"></text>
+             </view> 
+            <scroll-view scroll-y="true" lower-threshold="200" bindscrolltolower="srcollHander" style="height:100%">            
+              <view class="list-item">
+                <view class="movie-item" wx:for='{{List}}' wx:for-item="List"  wx:for-index="key"   bindtap="gotoDetailHandler" data-id ="{{List.id}}">
+                  <image class="poster" lazy-load='true' mode="widthFix"  src ="{{List.img}}"></image>
+                  <view class="title"  >
+                      <text class="shop-type1">{{List.bk}}</text><text class="shop-type2">{{List.tags}}</text></view> 
+                  <view class="shop-title mui-ellipsis">{{List.title}}</view><view class="shop-price mui-pull-left">￥{{List.price}}</view>
+                </view>
+              </view>
+            </scroll-view>
+        </view>
+    </view>

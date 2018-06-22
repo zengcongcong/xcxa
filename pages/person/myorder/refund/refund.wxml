@@ -1,0 +1,131 @@
+<!--pages/person/myorder/refund/refund.wxml-->
+<view id="hg-box-bottom" bindtap="reserat">
+    <text class="block">提交</text>
+</view>
+<view class="content">
+    <view class="box"  >
+        <view class="view-cell cells">
+            <view class="list-top">
+                <text class="left order-time mui-ellipsis">{{shopinf.order_time}}</text>
+                <text class="right order-status shop-price">{{shopinf.order_status}}</text>
+            </view>
+            <view class="hg-link" href="undefined">
+                <image class="left hg-img" src="https://dev.unionglasses.com{{shopinf.img_src}}"></image>
+                <view class="media-body">
+                    <view class="ellipsis-2 list-title">
+                        {{shopinf.title}}
+                    </view>
+                    <view class="color">{{shopinf.desc_short}}</view>
+                    <view class="shop-price">{{shopinf.sign}}<text class="realprice">{{shopinf.realPrice}}</text></view>
+                </view>
+                <view class="numbox">
+                      ×<text class="detail-numbox">{{shopinf.num}}</text>
+                </view>
+            </view>
+        </view>
+
+        <view class="cells">
+            <view class="reason" bindtap='chooseSezi'>
+                <view class="left apply-title">退货原因</view>
+                <text class="right apply-tip" >请选择<text class=" iconfont  jt icon-jiantou"></text></text>
+            </view> 
+            <view class="apply-txt" >{{applytxt}}</view>
+        </view>
+        
+        <view class="cells">
+            <view class="info">
+                <text class="color-default">退款金额：</text><text class="total-price">{{total}}</text>元
+                <text class="fast-free">（含发货邮费{{shopinf.fastfree}}元）</text>
+            </view>
+        
+        </view>
+
+        <view class="cells">
+            <view class=" align-left mui-ellipsis">
+                <text>退款说明:</text><input class="r-desc" type="text" bindinput	="input"></input>
+            </view>
+        </view>
+
+        <view class="cells">
+            <view class="apply-title">上传凭证：添加图片最多三张</view> 
+             <view class="list-wrap">
+
+                      <view class="weui-cell__bd">
+                            <view class="weui-uploader">
+                              <view class="weui-uploader__hd">
+                                <!-- <view class="weui-uploader__title">点击可预览选好的图片</view> -->
+                                <!-- <view class="weui-uploader__info">{{pics.length}}/9</view> -->
+                              </view>
+                              <view class="weui-uploader__bd">
+                                <view class="weui-uploader__files">
+                                  <block wx:for="{{pics}}" wx:for-item="image">
+                                    <view class="weui-uploader__file">
+                                      <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                                    </view>
+                                  </block>
+                                </view>
+                                <!-- <-- isShow 这个是判断是否进行触发点隐藏操作-->
+                                <view class="weui-uploader__input-box {{isShow?'true':'hideTrue'}}">
+                                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+
+
+                    <!-- <view class="weui-cell__bd">
+                        <view class="weui-uploader">
+                          <view class="weui-uploader__hd">
+                          </view>
+                          <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files">
+                              <block wx:for="{{pics}}" wx:for-item="image">
+                                <view class="weui-uploader__file">
+                                  <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                                </view>
+                              </block>
+                            </view>
+                            <!-- <-- isShow 这个是判断是否进行触发点隐藏操作-->
+                                 <!-- <view class="weui-uploader__input-box {{isShow?'true':'hideTrue'}}">
+                              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                          </view>
+                        </view>
+                    </view> --> 
+
+
+              </view>       
+        </view>
+    </view>
+</view>
+
+
+
+
+<view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+<view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+    <view>退款原因</view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="dp">  
+        <text class="left">{{tuyy[0]}}</text>
+        <label class="radio right" >
+          <radio value="{{tuyy[0]}}" checked="{{checked}}"/>
+        </label>
+      </view>
+       <view  class="dp">
+          <text class="left">{{tuyy[1]}}</text>
+          <label class="radio  right" >
+            <radio value="{{tuyy[1]}}" checked="{{checked}}"/>
+          </label>
+       </view>
+      <view  class="dp">
+          <text  class="left ">{{tuyy[2]}}</text>
+          <label class="radio right" >
+            <radio value="{{tuyy[2]}}" checked="{{checked}}"/>
+          </label>
+      </view>
+    </radio-group>
+    <view class="complate" bindtap='oppen'>完成</view>
+</view>
+
+

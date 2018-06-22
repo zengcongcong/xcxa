@@ -1,0 +1,164 @@
+<view class='container'>
+
+    <view id="maintabs" class="mui-bar mui-bar-tab">
+        <view class="item-comen">
+            <view class="iconfont kf icon-kefu"></view>
+            <view>客服</view>
+        </view>
+        <view class="item-comen"  bindtap="gwcs">
+            <view class="iconfont gwc   icon-cart" ></view>
+            <view >购物车</view>
+        </view>
+        <view class="item-comen  jia" bintap="btnSave">加入购物车</view>
+        <view class="item-comen  lj" bindtap='btnshop'>立即购买</view>
+    </view>
+     <view class="content" data-id ="{{shopinf.id}}">
+        <view class="slider">
+              <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-color="	rgba(255, 255, 255,255)"  indicator-color="rgb(0,0,0)" indicator-active-color="#fff" autoplay="true" interval="2000">
+          <swiper-item class="slider-item" wx:for='{{shopinf.img}}' wx:for-item="itemed"  >
+          <image src ="https://dev.unionglasses.com/{{itemed.src}}"></image>     
+          </swiper-item>
+        </swiper>
+          <!-- <image src ="https://dev.unionglasses.com/{{shopinf.img[0].src}}"></image> -->
+     </view>
+      <view class="view-title">
+          <text class=" texts">{{shopinf.title}}</text>
+          <text class=" price">￥{{shopinf.salePrice}}</text>
+          <text class="mui-ellipsis texts">快递{{shopinf.fastfree}}</text>
+     </view> 
+
+     <view class = "coupon-cell" bindtap='chooseS'>
+        <view class="table-view" >
+             <text class="middle"><text class=" iconfont  colors icon-youhuiquan1"></text><text class="yhj">领取优惠券</text> </text><text class=" iconfont iconfonts  icon-jiantou"></text> 
+        </view>
+     
+     
+     </view>
+<!-- wx:if="{{Attr.key == xunhuan.codes?'show':''}}"  -->
+     <view class="view-cont" bindtap='chooseSezi' wx:for="{{sx}}" wx:for-item="Attr" data-index="{{Attr.key}}" data-type="{{Attr.type}}">
+             <view  class="mui-table-view {{tabArr.curHdIndex==index}}" >
+                   <text class="color">{{Attr.name}}\t<text wx:for="{{xunhuan}}" wx:for-item="sss"   >\t{{sss.name}}</text></text> <text class=" iconfont iconfonts  icon-jiantou"></text> 
+                </view>
+     </view>
+     <view class ="evaluate">
+        <view class="hg-info-wrap">
+          <text class="shu-l"></text>
+          <image class="img"  src="/images/icon-comment.png"></image>评价
+          <text class="shu-r"></text>
+        </view>
+        <view class="hg-detail-cont">
+            <view class="hg-title">商品评价</view>
+            <view class="hg-cont-box">
+                <view class="hg-cont-top">
+                    <image class="mui-media-object" src="{{info.img}}"/>
+                    <text class="hg-username">kkkkkk</text>
+                    <view class="hg-start-box">
+                        <image class=" checked" src="/images/icon-start.png"></image>
+                        <image class="hg-icon hg-icon-start checked"></image>
+                        <image class="hg-icon hg-icon-start checked"></image>
+                        <image class="hg-icon hg-icon-start checked"></image>
+                        <image class="hg-icon hg-icon-start checked"></image>
+                    </view>
+                </view>
+                <view class="hg-comment-cont">
+                    <view class="hg-comment-time">2018-01-19 10:46:07 </view>
+                    <view class="hg-comment-txt" style="color: #333;">可以啊</view>
+                </view>
+                <view class="hg-shop-box">
+                    <view class="hg-shop-list">
+                        <image class="hg-list-img" src="/images/8.jpg"></image> 
+                    </view>
+                </view>
+                <view class="hg-button-box">
+                    <text class="hg-button">查看全部评论</text>
+                </view>
+            </view>
+        </view>
+        <view class="hg-info-wrap">
+                <view class="hg-info-wrps">
+                    <text class="shu-l"></text>图文详情
+                    <text class="shu-r"></text>
+                </view> 
+                <view class="hg-detail-cont">
+                      <image src="/images/8.jpg"/>
+                </view>  
+        </view> 
+     </view>
+     </view>
+
+
+</view>
+<view >
+  <view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal' ></view>
+  <view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+        <view class='oview'>
+         <view class="faster">
+            <view class="complates" bindtap='oppen' >确定</view>
+            <view>
+            <view class ="lxs"> 
+              <icon  class ="iconss fr" type="clear" size="18" bindtap='cleardoan' />
+            </view>
+            </view>
+            <radio-group  >
+            
+              <view class="radio" wx:for="{{newarry.attr_data}}" wx:for-item="items"   wx:if ="{{newarry.type == 1?'show' : ''}}">
+                  <radio  bindtap="colors"  data-key="{{newarry.key}}" data-item="{{items}}"/>{{items}}
+              </view>
+            </radio-group> 
+          
+          </view>
+        <view wx:for="{{newarry.attr_data}}" wx:for-item="items" wx:if ="{{newarry.type == 2?'show' : ''}}" >
+            <view class ="lx">  <icon  class ="iconss fr" type="clear" size="18" bindtap='cleardoan' /></view>
+          <view bindtap="colors" data-key="{{newarry.key}}" data-item="{{items}}">{{items}}
+         
+          </view>
+          
+        </view>
+         
+         
+         </view>   
+
+      
+
+  </view>
+
+  </view>
+
+
+
+  <!-- </view> -->
+<!-- </view> -->
+
+<view>
+  <view class='maskLayer' wx:if="{{chooseS}}" bindtap='hideModals' ></view>  
+  <view class ="choose" wx:if="{{chooseS}}" animation='{{animationDatas}}'>
+       <view class="complate" bindtap='oppens'>确定</view>
+      <scroll-view class="modal-box" scroll-y="true" lower-threshold="200">
+              <view class="modal-body"> 
+                  <view class="list"   wx:for="{{yuj}}" wx:for-item="y" data-id ="{{y.cid}}" > 
+                        <view class="info-box">
+                            <view class="coupon-money">
+                                <view class="lay of">
+                                    {{y.sign}}<text style = "font-size:44rpx;">{{y.name}}</text>
+                                </view>
+                                <view class="lay  rights">
+                                    <view class="tit">
+                                        <text class="right">{{y.minus}}</text><text>{{y.info}}</text>
+                                    </view>
+                                    <view class="demand">{{y.vt.s}}至{{y.vt.s}}</view>
+                                </view>
+                            </view>
+                        </view> 
+                        <view class="{{y.status==1 ?' active get-btn':'get-btn' }}" bindtap='youhuij{{y.status}}' data-index="{{index}}">
+                        <view wx:if="{{y.is_received == 0}}" class = "active">已领取</view>
+                        <view wx:elif="{{y.is_received == 1}}">未领取</view>
+                        </view>
+                  </view>
+              </view>
+      </scroll-view>     
+  </view>
+
+</view>
+
+
+

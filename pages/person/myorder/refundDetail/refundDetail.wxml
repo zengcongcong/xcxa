@@ -1,0 +1,64 @@
+<!--pages/person/myorder/refundDetail/refundDetail.wxml-->
+<view class="footer-bar" bindtap='phone'>
+    <text class="icon iconfont icon-dadianhua-"></text>拨打电话</view>
+
+<view class="content">
+  <view class="header">
+      <view class="inner">您的商品在 
+          <text  wx:if="{{goodLists.refund_status == 0}}">退款中</text>
+          <text  wx:if="{{goodLists.refund_status == 1}}">{{goodLists.refund_time}}退款成功</text>
+          <text  wx:if="{{goodLists.refund_status == 2}}">{{goodLists.reject_time}}卖家拒绝退款</text>
+          <text  wx:if="{{goodLists.refund_status == 3}}">{{goodLists.refund_time}}买家已撤销</text>
+          <text  wx:if="{{goodLists.refund_status == 4}}">{{goodLists.refund_time}}erp审核中</text>
+      </view>
+  </view>
+</view>
+<scroll-view scroll-y="true" lower-threshold="200" bindscrolltolower="srcollHander" style="height:100%"> 
+    <view class="detail">
+      <view class="bar" wx:if="{{goodLists.refund_status == 0}}" >
+        <view class="mall-tip">
+            		如果卖家未在48小时内处理，系统将会自动退款给您。	
+        </view>
+        <view class="sj">
+              <p>商家同意或者超时未处理，系统将退款给您</p>
+              <p>如果商家拒绝退款，请与商家进行协商</p>
+        </view>
+        <view class="bar  bars">
+            <text  class="btn" bindtap='up' >撤销申请</text>
+        </view>
+      </view>
+
+      <view class="box">
+          <view class="item">
+              <view class="top">退款信息 </view>
+              <view class="hg-link" bindtap="tiaoz" data-id="0">
+                  <image class="img fl"  src="{{url}}{{goodLists.img_src}}"></image>
+                  <view class="body">
+                      <view class="mui-ellipsis-2 hg-list-title">
+                      {{goodLists.title}}
+                      </view>
+                      <p>{{goodLists.desc_short}}</p>
+                  </view>
+                  <view class="numbox">×<text class="num">{{goodLists.num}}</text></view>
+
+                  
+                  
+              </view>
+              <view class="short">
+                  <view>退款原因：错拍</view>
+                  <view>退款金额：{{goodLists.sign}}{{goodLists.realPrice}}</view>
+                  <view>申请时间：{{goodLists.apply_time}}</view>
+              </view>
+             
+          
+          </view>
+      
+      </view>
+
+
+    </view>
+
+
+</scroll-view>
+
+

@@ -1,0 +1,21 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  
+    <view class="usermotto"> 
+       <text class="iconfont icon-wode fl"></text>  
+       <input  type="number"  value ="{{phoneValue}}"  bindinput="Input"  placeholder='请输入手机号'bindblur="bulr"  /> 
+        <icon  class ="icons {{shouview?'show':'hide'}}" type="clear" size="18" bindtap='clear'  />
+    </view> 
+     <view class="validate">
+        <text class="iconfont icon-yanzhengma fl"></text>  
+        <input placeholder='请输入验证码'type="number" class="text fl" name="validate"  bindinput="inpused" bindblur="bulrs"  value="{{Value}}"></input> 
+     
+        <view class="getcode fr">
+            <icon  class ="iconss  {{shouviews?'show':'hide'}} " type="clear" size="18" bindtap='cleardoan' />
+             
+             <button style="color:#fff" disabled="{{disabled}}" plain ="true" bindtap="sendmessg" bindblur="bulrs" class="{{huan?'bolck':''}}">{{desctime}}</button> 
+        </view>
+     </view>
+    <button class="logIn" bindtap='zhuce'>注册</button>   
+
+</view>

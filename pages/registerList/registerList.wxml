@@ -1,0 +1,25 @@
+<view class="container">
+    <view class="tip">根据手机号<text class="mobile">{{phone}}</text><text>匹配到以下几个账号,</text><text>\n</text>	请<text class="color-red">慎重选择</text>曾经创建过的账号进行绑定或<text class="color-red">不绑定</text>
+    </view>
+    <view class="wrap table">
+      <view class="bg-w"  wx:for="{{titles}}" wx:for-item="item">
+       <view class="th">{{item}}</view>
+      </view>
+
+      <radio-group  class="tr" bindchange="radioChange">
+        <view class="radio {{curHdIndex==index?'bg-g':''}}" font-size="10rpx;" wx:for="{{listData}}" wx:for-item="item">
+              <radio class="td" color="rgb(25, 137, 209)" value="{{index}}"checked="{{item.checked}}" />
+              <view class="td">{{item.name}}</view>
+              <view class="td">{{item.sex}}</view>
+              <view class="td">{{item.birthday}}</view>
+        </view>
+      </radio-group>
+    
+    </view>
+
+
+    <view class="box">
+        <view class="btn-bind" bindtap="result">绑定</view>
+        <view class ="btn-nobind" bindtap="nobind" >不绑定</view>
+    </view>
+</view>

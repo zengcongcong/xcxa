@@ -1,0 +1,59 @@
+<!--pages/person/refundList/refundList.wxml-->
+<view class="content" >
+          <scroll-view scroll-y="true" class="mui-scroll-wrapper"   lower-threshold="200" bindscrolltolower="srcollHander" style="height:100%"> 
+              <view class="list" wx:for='{{goodLists}}' wx:for-item="good" data-id="{{good.id}}">
+                  <view class="hg-list-cell" rid="4">
+                      <view class="hg-list-top hg-list-view">
+                          <view class="fl mui-ellipsis">{{good.order_time}}</view>
+                          <view class="fr" wx:if="{{good.order_status == 1}}">待付款</view>
+                          <view class="fr" wx:if="{{good.order_status == 2}}">已过期</view>
+                          <view class="fr" wx:if="{{good.order_status == 3}}">未发货</view>
+                          <view class="fr" wx:if="{{good.order_status == 4}}">待发货</view> 
+                          <view class="fr" wx:if="{{good.order_status == 5}}">待评价</view> 
+                          <view class="fr" wx:if="{{good.order_status == 6}}">已评价</view> 
+                          <view class="fr" wx:if="{{good.order_status == 7}}">退款中</view> 
+                          <view class="fr" wx:if="{{good.order_status == 8}}">已退款</view> 
+                          <view class="fr" wx:if="{{good.order_status == 9}}">已取消</view> 
+                      </view>
+                      <view class="sublist" bindtap="detail" data-id="{{good.odetail_id}}">
+                          <image  class="fl img" src="{{url}}{{good.img_src}}"></image>
+                           <view class="mui-media-body">
+                                      <view class="mui-ellipsis hg-list-title">{{good.title}}</view>
+                                      <view class="flex-box-align-left mall-cont-detail">
+                                          <view class="miaoshu mui-ellipsis-2">
+                                            {{good.desc_short}}</view>                                            <view class="hg-numbox-cell">
+                                            <text>×</text> <text class="hg-detail-numbox">{{good.num}}</text>
+                                          </view>          
+                                      </view>
+                                      <view class="align-left">
+                                          <text class="shop-price">
+                                          <text class="lee">{{good.sign}}</text><text class="yuan">{{good.realprice}}</text>
+                                          </text>
+                                          <view class="fr ttt"  wx:if="{{good.refund_status == 0}}">退款中</view>
+                                          <view class="fr ttt"  wx:if="{{good.refund_status == 1}}">退款审核通过</view>
+                                          <view class="fr ttt"  wx:if="{{good.refund_status == 2}}">拒绝退款</view>
+                                          <view class="fr ttt"  wx:if="{{good.refund_status == 3}}">撤销退款</view>
+                                          <view class="fr ttt"  wx:if="{{good.refund_status == 4}}">ERP审核中</view>
+                                      </view>
+                                  </view>
+                      </view>
+
+                      <view class="list-btn" bindtap="del" data-id="{{good.id}}">
+                          <view class="del">删除</view>
+                      </view>
+                  </view>
+              
+              </view>
+        </scroll-view>
+
+</view>
+
+  <view id="content_empty" hidden="{{hidden}}">
+            <view class="tip-empty-box">
+                <view>
+                <image src ="/images/empty-refund.png"></image>
+                 </view>
+                <view class="tip-empty-txt">您还没有相关的订单</view>
+            </view>
+
+  </view>

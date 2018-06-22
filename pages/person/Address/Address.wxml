@@ -1,0 +1,32 @@
+<!--pages/person/Address/Address.wxml-->
+<view id="hg-box-bottom" class="mall-box-bottom">
+    <text id="hg-btn-add" catchtap ="bindViewTab">添加新地址</text>
+</view>
+<scroll-view scroll-y="true" lower-threshold="200" bindscrolltolower="srcollHander" style="height:100%"> 
+        <view class="mui-scroll">
+         <radio-group class="radio-group" bindchange="radioChange">
+            <view id="content_list" wx:for='{{goodList}}' wx:for-item="good" wx:key="value" >
+                <view class="adress-top">
+                    <view class="mui-table">
+                        <text class="mui-table-left mui-ellipsis">收货人:{{good.username}}</text><text class="mui-table-right">{{good.mobile}}</text>
+                    </view>
+                    <view>配送至 <text>【默认】</text><text class="default-address">{{good.addre}}</text></view>
+                </view>
+                <view class="address-set">
+                      <view class="mui-pull-left">
+                         
+                    <label class="radio" >
+                      <radio value="{{index}}" checked="{{good.isChecked}}" /><text>设为默认地址</text>
+                    </label>
+                  
+                          
+                      </view>
+                      <view class="mui-pull-right">
+                          <text class="btn-edit"  data-index="{{index}}" bindtap="edit"><text class="iconfont  icons icon-form"></text>编辑</text>
+                          <text class="btn-del" bindtap="del"  data-id="{{good.id }}" data-index="{{index}}"><text class="iconfont  icons icon-delete" ></text>删除</text>
+                      </view>
+                </view>
+            </view> 
+             </radio-group> 
+        </view>
+</scroll-view >

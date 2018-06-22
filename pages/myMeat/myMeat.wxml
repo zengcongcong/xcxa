@@ -1,0 +1,38 @@
+ <view class='container'>
+       <view id="cate_nav" class="hg-tab-box" >
+          <view class="control-item" wx:for="{{Lists}}" wx:for-item="item"> 
+              <view  id="{{index}}" class="{{selist[index].ishow?'active':''}}"  catchtap ="changes">
+                  <view class="item-list {{selist[index].ishow?'active':''}}">{{item.name}}
+                    <text class="{{selist[index].ishow?'arrow active':'arrow'}}"></text>
+                  </view>
+              </view>
+               <scroll-view class="heigg {{selist[index].ishow?' show':' hide'}}" scroll-y="true" lower-threshold="200">
+                  <view class="modal-body">
+                      <view class="allshops {{all?'actived':''}}" data-index="{{index}}"  bindtap="allShops">全部</view>
+                      <view  class="left {{item.ikey== index?'actived':''}}" wx:for="{{item.lst}}" wx:for-item="list"  bindtap="set"  data-name="{{list.name}}" data-index="{{index}}">
+                          <view class="table-cell" >
+                              
+                              <text class="{{item.name == list.name?' acd  actives':'acd' }}">{{list.name}}</text>
+                          </view>
+                      </view>
+                  </view>
+              </scroll-view>
+          </view>
+      </view> 
+    
+       <scroll-view scroll-y="true"  lower-threshold="200" style="height:{{height}}px" bindscrolltolower='lower'>             
+           <view  class="list-item">
+              <view class="content-item"  wx:for='{{List}}' wx:for-item="List" wx:for-index="key" >
+                  <view class="njjj"  bindtap="detaileven" data-id ="{{List.id}}">
+                      <image  class="poster"  lazy-load='true' mode="scaleToFill"  style="height:300rpx" src='{{urls}}{{List.img}}'></image>
+                  <view class="media-body">
+                      <view class="shop-title mui-ellipsis">{{List.name}}</view>
+                      <view class="shop-cont">￥{{List.price}}</view>
+                  </view>
+                  
+                  </view>
+              </view>
+           </view> 
+       </scroll-view> 
+</view>
+

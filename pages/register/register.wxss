@@ -1,0 +1,81 @@
+@import "/common/style/stylesheet.wxss";
+page{
+    width: 100%;
+     background-color: #eee; 
+    font-size:30rpx;
+    padding:0 30rpx;
+    box-sizing: border-box;
+}
+.usermotto{
+  width: 100%;
+  position: relative;
+  margin-top: 30rpx;
+  border:1px solid #fff;
+  background-color: #fff;
+  height: 76rpx;
+  color:#000000;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-radius: 15rpx;
+}
+.iconfont{
+  width: 10%;
+  height: 76rpx;
+  line-height: 76rpx;
+  color:#000000;
+}
+.usermotto input{
+  width: 80%;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+radio{
+color: #000;
+}
+.left{
+  width: 50%;
+  position: relative;
+  left: -80rpx;
+}
+.group{
+  padding:80rpx 80rpx 50rpx 80rpx ;
+}
+.btn-area button{
+  width: 100%;
+  margin-top: 120rpx;
+  color:#fff;
+  background-color: rgb(25, 137, 209);
+}
+.mask{
+  width:100%;
+  height:100%;
+  position:fixed;
+  background-color:#999;
+  z-index:9999;
+  top:0;
+  left:0;
+  opacity:0.5;
+}
+picker {
+position:relative;
+width:100%;
+}
+.input-s{
+  position: relative;
+  z-index: 0;
+}
+.input-master{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 20
+}
+.icons{
+  position:absolute;
+    z-index: 1;
+    top: 20rpx; 
+    right:25rpx;
+    text-align: right;
+}

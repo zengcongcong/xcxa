@@ -1,0 +1,111 @@
+
+<view class="wrap">
+    <view class="top-banner">
+        <image src="/images/signR-header.png"></image>
+        <view class="txt">我的积分：<text class="mall-point">{{dated.erpPoint}}</text> </view>					
+    </view> 
+    <view class="divider-line1">
+        <view class="line-css"></view>
+        <view class="divider-line1-text">
+            <view class="both">
+                <text class="curno">{{datas.conCnt}}</text>
+                <text class="totno">/{{datas.totCnt}}</text>
+            </view>
+        </view>
+        <view class="subject">
+					已连续签到<text>{{datas.conCnt}}</text>天
+        </view>
+    </view>
+    <view class="stars" id="stars_box" bindtouchmove="stars">
+        <view id="stars">
+            <view class="list"  wx:for="{{list}}" wx:for-item="item" >
+               <view class="list" style="transform:translate3d({{lsize}}px, 0px, 0px);">
+                  <view class="list" wx:if="{{item.isSign == 1}}"> 
+                  <image class="tupo" src="/images/sign-star.png"></image>
+                  </view>
+                  <view class="list" wx:else> 
+                  <image class="tupo" src="/images/sign-star1.png"></image> 
+                  </view>
+                  <view class="starts-text">{{item.date_value}}</view>
+               </view>
+            </view>
+        </view>
+
+    </view>
+    <view class="divider-line2">
+        <view class="lines">
+            <view class="line"></view>
+            <image src="/images/btn-sign-regist.png"  catchtap="price"></image>
+        </view>
+    
+    
+    </view> 
+
+    <view class="description">
+        <view  class="title">签到规则</view>
+        <view class="signR-detail"id="sign_des">
+            <text>{{datas.des}}</text>
+        </view>
+    </view>
+</view>
+
+
+<!--隐藏区域  -->
+
+ <view class="showmodal " catchtap="showModal">
+    <view class="bg"></view>
+    <!-- <view class="show"> -->
+    <view class="showed">
+        <view class="popSignR {{ showview== 0?'shows':'hide' }}"  >
+            <view class="popSignRboth">
+                <view class="pop-top">
+                    <view class="pop-get-point">
+                      <text class="jf">{{jjifen}}</text>
+                    </view>
+                    <image src="/images/btn-sign-ok.png"></image>
+                    <view class="pop-tip-msg">
+                        <view class="pop-cont">
+                             <view class="red">恭喜您，签到成功！</view>
+                            <view class="dlg-msg-text1">今日签到获得<text>{{text[0]}}积分</text></view>
+                            <view class="dlg-msg-text2">{{text[1]}}<text>{{text[2]}}</text></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="pop-closed" bindtap="closed">
+                     <text class="iconfont icon-guanbi"></text>
+                </view>
+            </view>
+        </view> 
+        <view id="popTip" class="dlg-box {{showview == 1?'shows':'hide'}}"   >
+            <view class="dlg-wrap">
+                <view class="dlg-content">
+                    <image src="/images/icon-order-ok.png"></image>
+                    <view class="dlg-text">
+                      <view class="red">您今天已签到啦！</view>
+                      <view >明天继续签到就可以获得更多</view>
+                      <view class="jl">积分奖励</view>
+                    </view>
+                </view>
+
+                <view class="dlg-close" bindtap="closed">
+                <text class="iconfont icon-guanbi"></text>
+                </view>
+            </view>
+        
+        </view>
+         <view id="popError" class="dlg-box {{showview == 2?'shows':'hide'}}">
+            <view class="dlg-wrap">
+                <view class="dlg-content">
+                    <image src="/images/icon-dlg-fail.png"></image>   
+                      <view class="dlg-text">
+                      <view >签到失败啦！</view>
+                      <view >请稍后再来签到</view>
+                    </view>
+                </view>
+                <view class="dlg-close" bindtap="closed">
+                  <text class="iconfont icon-guanbi"></text>
+                </view>
+            </view>
+        </view> 
+    </view>
+</view>  

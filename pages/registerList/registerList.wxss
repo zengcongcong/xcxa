@@ -1,0 +1,109 @@
+.tip{
+    font-size: 32rpx;
+    padding: 0 24rpx;
+    margin-top: 30rpx;
+    margin-bottom: 50rpx;
+}
+page{
+    width: 100%;
+     background-color: #eee; 
+}
+.color-red {
+    color: rgb(235, 39, 13);
+}
+.wrap {
+    width: 100%;
+    padding: 4rpx 14rpx 16rpx 0;
+    background-color: #fff;
+}
+.table {
+  border: 0px solid darkgray;
+}
+.bg-w{
+    display: inline-block;
+}
+.bg-w>th{
+  display: inline-block;
+  width: 30%;
+}
+.bg-w:nth-child(1){
+  display: inline-block;
+  margin-left: 19%;
+  width: 30%;
+}
+.bg-w:nth-child(2){
+  display: inline-block;
+  width: 20%;
+}
+.bg-w:nth-child(3){
+  display: inline-block;
+  width: 30%;
+}
+radio {  
+  transform:scale(0.7);  
+}
+.tr>.radio {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+    width:30%;
+    justify-content: center;
+    text-align: center;
+}
+.td:nth-child(1){
+   width:18%;
+    justify-content: center;
+    text-align: center;
+}
+.td:nth-child(2){
+    width:25%;
+    justify-content: center;
+    text-align: center;
+}
+.td:nth-child(3){
+   width:20%;
+  justify-content: center;
+  text-align: center;
+}
+.th:nth-child(4),.td:nth-child(4){
+    width:30%;
+    justify-content: center;
+    text-align: center;
+}
+.th {
+  justify-content: center;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.bg-g{
+  color:rgb(25, 137, 209);
+}
+.box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50rpx;
+}
+.btn-bind{
+  float: left;
+  margin-right: 5%;
+  }
+.btn-nobind{
+  margin-left: 5%;
+  float:right;
+}
+.btn-bind,.btn-nobind{
+  float: left;
+  width: 45%;
+  color:#fff;
+  border-radius: 22rpx;
+  font-size: 36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: rgb(25, 137, 209);
+  }

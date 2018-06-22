@@ -1,0 +1,348 @@
+
+<view class ="darkmack"   hidden="{{loadingHidden}}">
+  <loading class="jzqaz">  
+    数据加载中...  
+  </loading>
+  <view ></view>
+</view>
+<view  class='container'> 
+   <!-- <scroll-view scroll-y="true" class="mui-scroll-wrapper"   lower-threshold="200" bindscrolltolower="srcollHander" style="height:100% ;margin-bottom:120rpx;">      -->
+
+   <view class='containers'>
+      <view class = "fast">
+          <view class="fs">收货方式：</view>
+          <view class="types">
+              <view class="list fl"  bindtap='chooseS1' data-index="1">
+                  <view class="faster"><text style="margin-left:30rpx;">快递</text>
+                  <icon class="{{selected[1]?'icons  show':'icons  hide'}}" type="{{item}}" size="18" /></view>
+              </view>   
+              <view wx:if="{{infos.shops.get&&infos.shops.get.length>0}}" class="list fl"  bindtap="chooseS1" data-index="2"> 
+                  <view class="faster">
+                    <text >到店自取</text>
+                    <icon class="{{selected[2]?' icons show':'icons hide'}}" type="{{item}}" size="18"/>
+                  </view>
+              </view> 
+              <view wx:if="{{infos.shops.try&&infos.shops.try.length>0}}" class="list fl"  bindtap="chooseS1" data-index="3"> 
+              <view class="faster">
+                <text >到店试戴</text><icon class="{{selected[3]?'icons   show':' icons  hide'}}" type="{{item}}" size="18"/>
+                </view>
+              </view>         
+          </view>
+      
+      </view>
+       <view class="arddess" bindtap='ardess'>
+        <view  class="name">
+            <text class="name-l">收货人：{{definfo.username}}</text><text class="name-r">{{definfo.mobile}}</text>
+        </view>
+        <view class="gis" hidden="{{hiddens}}">
+            <text>配送至：【默认】{{definfo.province+definfo.city+definfo.address}}</text>  
+            <text class=" iconfont icons  icon-jiantou"></text>
+        </view>
+         <view hidden="{{hiddens1}}">
+            <view>店名：{{selinfo.text}}</view>
+            <view>地址：{{selinfo.address}}</view>
+         </view>           
+      </view>
+      <view class="shopping" wx:if="{{infos.shopinf&&infos.shopinf.length>0}}" wx:for="{{infos.shopinf}}" wx:for-item="item" wx:key="{{item.id}}">
+             <view class="shops" >
+              <image src="{{item.img_src}}"></image>
+              <view class="mojing">{{item.title}}</view>  
+              <view class="colors">{{item.desc_short}}</view>
+              <view class="price">￥{{item.price}}</view>
+          
+            </view>    
+           <view class="buylength">
+              <text class="count">购买数量</text>
+              <view class="count-r">
+                    <view class='subtract {{item.num == 1 ? "disabled": ""}}' data-index='{{index}}' catchtap='subtracttap'>-</view>
+                      <input  type='number' bindblur="adds" class='count' data-index="{{index}}"  value='{{item.num}}'/>
+                      <view class='add  {{item.stock <= item.num ? "disabled": ""}}' data-index="{{index}}" catchtap='addtap'>+</view>
+              </view>
+          </view> 
+
+           <view wx:if="{{item.coupount !=0}}" class="buylength" bindtap='shopxq' data-index="{{index}}">
+              <view class="yuj">优惠卷 <text wx:if="{{item.isShowCouponInfo == true}}">已选1张,省{{item.couponPrice}}元</text> <text class=" iconfont iconlt icon-jiantou"></text>
+              </view>
+          </view> 
+
+          <view>
+      <view class='maskLayer' wx:if="{{shopxq}}" bindtap='hideModals2' ></view>  
+      <view class ="choose" wx:if="{{shopxq}}" animation='{{animations}}'>
+          <view class="complate" bindtap='complete' data-index="{{goods_index}}">完成</view>
+          <scroll-view class="modal-box" scroll-y="true" lower-threshold="200">
+                <radio-group class="modal-body" bindchange="radioChanges" data-sat="{{goods_index}}"> 
+                  <view class="listsed" wx:for="{{show_coupount}}" wx:for-item="y" > 
+                    <view class="radio-groups" >
+                        <view class="info-box">
+                            <view class="coupon-money">
+                                <view class="lay of">
+                                  {{y.sign}}<text style = "font-size:44rpx;">{{y.value}}</text>
+                                </view>
+                                <view class="lay  rights">
+                                    <view class="tit">
+                                        <view class="right">{{y.name}}</view>
+                                        <view>{{y.info}}</view>
+                                    </view>
+                                    <view class="demand">{{y.vt.s}}至{{y.vt.s}}</view>
+                                </view>
+                            </view>
+                        </view>  
+                        <view class="get-btn">
+                          <label class="radio">
+                              <radio  value="{{index}}"  checked="{{y.isChecked}}"/>
+                          </label>
+                        
+                        </view>
+                    </view>
+                  </view>
+              </radio-group>
+          </scroll-view>      
+    </view> 
+
+
+          <view class= "{{item.isShow?' buylengths active':'buylengths '}}" bindtap='beizhu' data-index="{{index}}"  > 
+              <view class="yuj">备注<text class=" iconfont iconlt icon-jiantou"></text>
+            </view>
+            </view> 
+            <view class="{{item.isShow?'beizhu show':' beizhu hide'}}" >
+                        <view class=" beizhu" >
+                <textarea  name="textarea" value="{{item.content}}" bindblur="bulr" data-index="{{index}}"></textarea>
+            </view> 
+            <view class="nique"> 
+                  <view class="ok fl" catchtap="qued" data-index="{{index}}"> 确定 </view> <view class="qx fr" data-index="{{index}}" catchtap="qx" >取消</view>
+            </view>
+          
+          </view>
+
+      </view>  
+
+
+     
+    
+   </view>
+
+  <!-- </scroll-view>   -->
+ <view class="type">
+          <view class="{{iswatch?'fp activ':'fp'}}"  bindtap="fapiao" > 
+              <view class="pos">发票<text class=" iconfont  iconlt  icon-jiantouxia"></text></view>
+          </view>
+        <radio-group class="{{showsed?'radio-group  shows':'radio-group  hide'}}" bindchange="radioChange" data-index="{{index}}">
+                <view class="both">
+                    <view class="qifp">
+                      <text class="qiye fl">企业</text>
+                      <label class="radio fr" >
+                        <radio  value="0"   checked="{{item.checked}}"/>
+                      </label>
+                
+                    </view> 
+                     <view class="{{qi?'company  shows':' company hide'}} " >
+                        <form bindsubmit="formSubmits" bindreset="formResets">
+                           <view class="row">
+                              <input type="text" class="mui-input-clear company-name" placeholder="请输入企业抬头名称（必填）"  name="taitour"/>
+                           </view>
+                           <view class="row">
+                           <input type="text" class="mui-input-clear user-code" placeholder="请填写纳税人识别号（必填）" name="nsuir"/>
+                          </view>
+                           <view class="row">
+                         <input type="number" class="mui-input-clear user-company-mobile" placeholder="请输入您的手机号（必填）" name="numbersed"/>
+                          </view>
+                        <view class="row">
+                         <input type="text" class="mui-input-clear user-bank" placeholder="请输入开户行"  name="kaihuh"/>
+                        </view> 
+                        <view class="row">
+                            <input type="number" class="mui-input-clear user-bank-code" placeholder="请输入银行账号"  name="yhh"/>
+                        </view> 
+                        <view class="row">
+                         <input type="text" class="mui-input-clear user-address" placeholder="请输入地址" name="adrees"/>
+                       </view>  
+                        <view class="row">
+                            <input type="text" class="mui-input-clear user-phone" placeholder="请输入电话" name="phone"/>  
+                        </view>  
+                         <view class="shx">
+                             <button form-type="submit" class="ok"> 确定 </button> <button formType="reset">取消</button>
+                        </view>
+
+                        </form>
+                    </view>  
+                </view>
+                <view class="both">
+                  <view class="qifp">
+                    <text class="qiye fl">个人</text>
+                    <label class="radio fr" >
+                      <radio value="1"    checked="{{item.checked}}"/>
+                    </label>
+                  </view>
+                 <view class="{{gred?'company  shows':' company hide'}} " >
+                        <form bindsubmit="formSubmit" bindreset="formReset">
+                        <view class="row">
+                         <input type="text" class="mui-input-clear user-address" placeholder="请输入您的姓名(必填)" name="usenanme"/>
+                        </view> 
+                        <view class="row">
+                            <input type="text" class="mui-input-clear user-phone" placeholder="请输入您的手机号(必填)" name="usenumber" />   
+                        </view> 
+                         <view class="row">
+                            <input type="text" class="mui-input-clear user-phone" placeholder="请输入您的邮箱" name="usemoblie"/>   
+                        </view> 
+                        <view class="shx">
+                             <button form-type="submit" class="ok"> 确定 </button> <button formType="reset">取消</button>
+                        
+                        </view>
+
+                        </form>
+                    </view>  
+                </view> 
+                  <view class="both">
+                    <view class="qifp">
+                      <text class="qiye fl">无</text>
+                      <label class="radio fr" >
+                        <radio value="2"    checked="checked"/>
+                      </label>
+                    </view>
+                </view> 
+
+        </radio-group>
+
+          <view wx:if="{{coupons}}" class="buylength" bindtap='chooseS'>
+            <view class="yuj">优惠卷 <text wx:if="{{commonCouponPrice >0}}">已选1张,省{{commonCouponPrice}}元</text> <text class=" iconfont iconlt icon-jiantou"></text><text></text>
+            </view>
+              
+          </view>
+      </view>
+   <view class="section-bottom">
+      <view class="bottom-l">
+        <text >共计3件</text> 
+        <text wx:if="{{selected[1] == true}}">
+              <text  class="total">总额：<text class="match">{{goodsPrice+freight-totalCouponPrice}}元</text><text class="match">（含运费{{freight}}元）</text></text>
+        </text>
+        <text wx:if="{{selected[2] == true}}">
+              <text  class="total">总额：<text class="match">{{goodsPrice-totalCouponPrice}}元</text></text>
+        </text>
+        <text wx:if="{{selected[3] == true}}">
+              <text  class="total">保证金：<text class="match">{{attrTotal}}元</text></text>
+        </text>
+
+        </view>
+       <view class="btn-result" bindtap="Submission">提交订单</view>
+   </view>
+
+
+</view>
+
+
+<view>
+  <view class='maskLayer' wx:if="{{chooseS1}}" bindtap='hideModals1' ></view>  
+  <view class ="choose" wx:if="{{chooseS1}}" animation='{{animationDatas1}}'>
+        <view class="complate" bindtap='oppens'>管理收货地址</view> 
+      <scroll-view class="modal-box" scroll-y="true" lower-threshold="200" style="height: 710rpx;" >
+        <view>
+            <view id="content_list" wx:for='{{infos.address}}' wx:for-item="good" data-index="{{index}}" bindtap="Chose">
+                <view class="{{good.isChecked == true  ?' adress-top yanse':'adress-top'}}" >
+                    <view class="mui-table">
+                        <text class="mui-table-left mui-ellipsis"> 收货人:{{good.username}}</text><text class="mui-table-right">{{good.mobile}}</text>
+                    </view>
+                    <view class="psz">配送至 <text wx:if="{{good.isChecked}}" >【默认】</text><text class="default-address">{{good.address}}</text></view>
+                </view>
+          </view>
+        
+        </view>  
+         
+      </scroll-view>     
+  </view>
+
+</view>
+
+ <view>
+
+  <view class='maskLayer' wx:if="{{chooseS}}" bindtap='hideModals' ></view>  
+  <view class ="choose" wx:if="{{chooseS}}" animation='{{animationDatas}}'>
+       <view class="complate" bindtap='oppens1'>确定</view>
+      <scroll-view class="modal-box" scroll-y="true" lower-threshold="200">
+              <radio-group class="modal-body"  bindchange="radioChangesd" > 
+                  <view class="listsed" wx:for="{{coupons}}"  wx:for-item="y"> 
+                    <view class="radio-groups">
+                        <view class="info-box">
+                            <view class="coupon-money">
+                                <view class="lay of">
+                                  {{y.sign}}<text style = "font-size:44rpx;">{{y.value}}</text>
+                                </view>
+                                <view class="lay  rights">
+                                    <view class="tit">
+                                        <view class="right">{{y.name}}</view>
+                                        <view>{{y.info}}</view>
+                                    </view>
+                                    <view class="demand">{{y.vt.s}}至{{y.vt.s}}</view>
+                                </view>
+                            </view>
+                        </view>  
+                        <view class="get-btn">
+                          <label class="radio">
+                              <radio value="{{index}}" checked="{{y.isChecked}}"/>{{item.value}}
+                          </label>
+                        
+                        </view>
+                    </view>
+                      
+                  </view>
+              </radio-group>
+      </scroll-view>     
+</view></view>
+
+<view class="animation-element-wrapper" bindtap="hiddenFloatView" animation="{{animationData}}">
+     <view class="animation-element" >
+        <view class='tool-bar'>
+        <text class="pick-button" catchtap="hiddenFloatView">取消</text>
+        <text class="search" catchtap="search">搜索</text>
+         <!-- <input class='search' type='search' bindtap="show"  confirm-type='search'></input>  -->
+        <text class="pick-button pick-btn-confirm" catchtap="pickConfirm">确定</text>
+        </view>
+          <view class="line"></view> 
+        <picker-view indicator-style = "height: 50rpx;" value="{{value}}" bindchange="bindChanges">
+          <picker-view-column>
+            <view wx:for="{{items}}" wx:key="{{index}}" data-index="{{index}}">
+              {{item.text}}
+            </view>
+          </picker-view-column>
+        </picker-view>
+    </view>
+  </view>
+</view> 
+
+
+
+<!-- //弹出层内容，其中的“我知道”中绑定让弹出层消失的函数：bindtap="hide" -->
+<view class="modal-box" hidden="{{flags}}" bindtap="hide">
+
+    <view class="modal-box">
+
+      <view class="modal-content">
+          <view class="search-box">
+              <text class="sosuo" bindtap="bdsosuo">搜索</text>
+              <view class="search-txt">
+                <input type="text" id="search"  class="searchText" placeholder="有问题，点我搜搜看" placeholder-class="center"  bindinput='bindInput'/>
+                <text class="iconfont icon-xingtaiduICON_sousuo-- btn-search"></text>  
+              </view>
+          </view>
+
+
+        <!-- <button class="knowBtn" bindtap="hide">我知道了</button> -->
+     </view>
+     <scroll-view scroll-y="true" style="height:940rpx;" class="shoplist" >
+        <view class="list-info">
+          <view class = "{{ys.lei?'activess big':'big'}}"  catchtap="xzdis"   wx:for="{{items}}" wx:for-item="ys"  data-index="{{index}}"  wx:if="{{ys.shows}}"  >
+              
+                <view class=" {{ys.color?'list-info-d colorsed ':'list-info-d'}}" >{{ys.text}}<text class="{{ys.jiantou?' iconfont jt icon-jiantouxia hide':' iconfont jt icon-jiantouxia shows '}}"></text> <text class="{{ys.jiantou?'  iconfont jt icon-jiantoushang shows':'iconfont jt icon-jiantoushang  hide'}} "></text></view>
+                <view class="list-info-x " wx:if="{{ys.add == true}}" >{{ys.address}}</view>
+            </view>
+        </view>  
+    </scroll-view>
+     <view class="complate"  bindtap="btnSubmit">确定</view>  
+    </view>
+</view>
+
+
+
+
+
+
+
+ 

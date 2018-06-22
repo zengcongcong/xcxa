@@ -1,0 +1,84 @@
+<!--pages/newProduct/newProduct.wxml-->
+<view class="{{ showview==true?' container active':'container' }} " style="transform:translate3d({{lsize}}px, 0px, 0px);">
+   <view class="search-box" >
+      <view class="search-txt">
+          <input type="text" id="search"  class="searchText" placeholder="有问题，点我搜搜看" bindinput='bindInput' value="{{gname}}"/>
+          <text class="iconfont icons  icon-xingtaiduICON_sousuo-- btn-search" bindtap='sousuo'></text>  
+      </view>
+  </view> 
+
+  <view class="bar-nav">
+      <view class="all  {{indexNum == 1?'active':''}}" catchtap="price" data-sad="1">综合</view>
+      <view class="all  {{indexNum == 2?'active':''}} " catchtap="price"  bindtap="xiaoliang" data-sad="2">销量</view>
+        <view class="all {{indexNum == 3?'active':''}}" catchtap="price" data-sad="3">价格
+        <view class="{{_num == 1?'up':''}}"></view> 
+        <view class="{{_num == 2?'down':''}}"></view>
+        </view>
+        
+      <view class="all {{indexNum == 4?'active':''}}" catchtap="price" data-sad="4" >筛选</view> 
+  </view>
+
+
+    <scroll-view scroll-y="true" lower-threshold="200"  bindscrolltolower='lower'>             
+          <view  class="list-item">
+            <view class="content-item"  bindtap="detaileven" wx:for='{{goodLists}}' wx:for-item="List" wx:for-index="key" data-id ="{{List.id}}">
+                <image  class="poster"  lazy-load='true'  src='{{url}}{{List.img[0]}}'></image>
+                <view class="media-body">
+                    <view class="shop-title mui-ellipsis">{{List.title}}</view>
+                    <view class="shop-cont">{{List.price}}</view>
+                </view>
+            </view>
+          </view> 
+    </scroll-view> 
+
+    <view class='mall-canvas-backdrop' bindtap='hideModal' data-sad="4"></view>
+</view>
+
+<!-- 隐藏区域   -->
+
+<view class="showmodal {{ showview==true?'active':'' }}" catchtap="showModal">
+  <view class="mall-side-wrap">
+    <view class="mall-side mall-side-1">
+        <view class="jiage">价格区间</view>
+        <view class="input-box">
+            <view class="input-row">
+                <input type="number"   placeholder="最低价格" bindinput="inputs"  value="{{values}}"/>
+            </view>
+            <text class="flex-box-align-center">-</text>
+              <view class="input-row">
+                <input type="number"  placeholder="最高价格" bindinput="inputs1" value="{{values1}}"/>
+            </view>
+        </view>
+    </view>
+    <view class="mall-side mall-side-2">
+        <view class="mui-navigate-right mall-collapse mui-active jiage" bindtap="ppai"><text>品牌</text><text class=" {{updown?'iconfont  icon-jiantouxia fr':'iconfont  icon-jiantoushang fr'}}"></text></view>
+        <view clss="mall-brand-wrap">
+           
+          <view class="{{height?' table brand  actives ' :'table brand' }}"   >
+          
+            <view class="{{bs.kuang == 1?'lis colors':'lis'}}" bindtap="select" wx:for="{{brands}}"  wx:for-item="bs"  data-index="{{index}}" data-id="{{bs.id}}" ><view >{{bs.name}}</view></view>
+             
+          </view>
+        </view>  
+    </view>
+
+    <view class="btnbox">
+        <view class="reset"   type="button" bindtap="reset">重置</view>
+        <view class="submit"   type="button" bindtap="submit">完成</view>
+    
+    </view>
+
+  </view>
+</view> 
+
+<!-- 没有相关产品 -->
+<view id="content_empty" hidden="{{hidden}}">
+      <view class="tip-empty-box">
+          <image src ="/images/empty-search.png"></image> 
+          <view class="tip-empty-txt">抱歉，没有搜索到您需要的商品</view>
+      </view>
+
+</view>
+
+
+

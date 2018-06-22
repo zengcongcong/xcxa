@@ -1,0 +1,102 @@
+/* pages/person/Address/Address.wxss */
+/* pages/person/Address/Address.wxss */
+@import "/common/style/stylesheet.wxss";
+page{
+  background-color: #efeff4;
+}
+#hg-box-bottom {
+    background-color: transparent;
+    box-shadow: none;
+    color: #fff;
+}
+.mall-box-bottom {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: table;
+    width: 100%;
+    padding: 0;
+    table-layout: fixed;
+    border-top: 0;
+    border-bottom: 0;
+}
+#hg-btn-add {
+    color: #fff;
+    border-radius: 0;
+    font-size: 26rpx;
+    margin-bottom: 0;
+    padding: 20rpx 0;
+    font-weight: 400;
+    background-color: #dd524d;
+    position: relative;
+    z-index: 20;
+    margin-top: 0;
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#content_list{
+    margin: 10rpx 0;
+    background-color: #fff;
+    font-size: 26rpx;
+}
+#content_list:first-child{
+   margin: 0 0;
+}
+.mui-scroll {
+    top: 0;
+    width: 100%;
+    bottom: 60rpx;
+}
+.adress-top {
+    position: relative;
+    overflow: hidden;
+    padding: 38rpx 24rpx 16rpx;
+    border-bottom: 1px solid #e5e5e5;
+}
+.mui-table{
+  color: #000;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.mui-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.mui-table-right{
+  float: right;
+}
+.address-set {
+    height: 75rpx;
+    padding: 0 20rpx;
+    text-align: left;
+    color: #000;
+    line-height: 70rpx;
+}
+.mui-pull-left{
+  float:left;
+}
+.mui-pull-right{
+  float:right;
+  color: rgb(152, 152, 152);
+}
+.iconfont{
+  width:40rpx;
+  height: 40rpx;
+  margin-left: 15rpx;
+  font-size: 30rpx;
+  color:rgb(152, 152, 152);
+}
+.btn-edit {
+    margin-right: 36rpx;
+}
+radio{ transform:scale(.8)  }
+

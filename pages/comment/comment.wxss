@@ -1,0 +1,91 @@
+/* pages/person/myorder/comment/comment.wxss */
+page{
+   background-color: #efeff4;
+   font-size: 26rpx;
+}
+.box{
+   margin-top: -10rpx;
+}
+.box1 { 
+  display: inline-block;
+  position:absolute; 
+  top:15rpx;
+}
+.hg-icon-start {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+.top{
+  position: relative;
+}
+.box1>image{
+  width: 40rpx;
+  height: 40rpx;
+ 
+}
+.item{
+    margin: 10rpx 0;
+    padding: 30rpx 24rpx 20rpx 24rpx;
+    background-color: #fff;
+}
+.img{
+    width: 70rpx;
+    height:  70rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+    border-radius: 50%;
+}
+.username{
+  padding-right: 30rpx;
+}
+.time{
+    font-size: 28rpx;
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+    color: #8f8f94;
+}
+.tex{
+    margin-bottom: 20rpx;
+    color:#333;
+}
+.shop{
+    width: 100%;
+    overflow: hidden;
+}
+.shop-list {
+   width: 104%;
+    margin-left: -14rpx;
+}
+.lists{
+width: 25%;
+float: left;
+height: 166rpx;
+overflow: hidden;
+}
+.imgs{
+    width: 100%;
+    max-width: 100%;
+    /* height: auto; */
+    max-height: 166rpx;
+    padding: 0 14rpx;
+}
+.reply{
+    border-top: 1px solid #e5e5e5;
+}
+.item-time {
+    font-size: 26rpx;
+    color: #989898;
+    padding-bottom: 10rpx;
+}
+.item-content {
+    font-size: 14px;
+    color: #000;
+    padding-bottom: 10px;
+}
+.subject{
+    font-size: 30rpx;
+    color: #eb270d;
+    padding: 30rpx 0px 20rpx 0px;
+}

@@ -1,0 +1,87 @@
+@import "/common/style/stylesheet.wxss";
+.validate{
+  width: 100%;
+  height: 300rpx;
+
+}
+page{
+    width: 100%;
+    background-color: #eee;
+}
+.usermotto,.validate{
+  width: 100%;
+  position: relative;
+  margin-top: 30rpx;
+  border:1px solid #fff;
+  background-color: #fff;
+  height: 76rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-radius: 15rpx;
+}
+.iconfont {
+  width: 10%;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+.usermotto input{
+  width: 80%;
+  height: 76rpx;
+  line-height: 76rpx;
+
+}
+.validate input{
+  height: 76rpx;
+  line-height: 76rpx;
+}
+.validate getcode{
+  height: 76rpx;
+  line-height: 76rpx;
+}
+.logIn{
+  width: 100%;
+  color:#fff;
+  padding: 5rpx; 
+  margin-top: 100rpx;
+}
+.log-list{
+  font-size: 30rpx;
+  padding: 0 30rpx;
+}
+
+.getcode{
+  position: absolute;
+  top:0;
+  right:0;
+  border-radius: 20rpx;
+  color:#000;
+  background-color: rgb(25, 137, 209);  
+}
+ button{
+  font-size: 30rpx;
+  color:#000;
+   background-color: rgb(25, 137, 209);  
+ } 
+
+button[plain] {
+border:none;
+}
+.young{
+  margin-top: 60rpx;
+  font-size: 32rpx;
+  border-bottom: 1px solid rgb(201, 201, 201);
+}
+.icons{
+  position:absolute;
+    z-index: 1;
+    top: 20rpx; 
+    right:25rpx;
+    text-align: right;
+}
+.iconss{
+    position: absolute;
+    z-index: 1;
+    top: 20rpx;
+    left: -50rpx;
+ 
+}

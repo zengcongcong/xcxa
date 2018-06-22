@@ -1,0 +1,24 @@
+<form bindsubmit="formSubmit" >
+     <view class="usermotto"> 
+       <text class="iconfont icon-wode fl"></text>  
+       <input  type="text" name="names" bindinput="userName" value ="{{names}}" placeholder='请输入姓名' bindblur="bulr" /> 
+            <icon  class ="icons {{shouview?'show':'hide'}}" type="clear" size="18" bindtap='clear'  />
+    </view> 
+    <radio-group name="radio" class="group" bindtap="radioChange">
+      <label class="left"><radio value="1"  checked="{{checked}}"  color="rgb(25, 137, 209)"/>男</label>
+      <label class="right"><radio value="2" color="rgb(25, 137, 209)"/>女</label>
+    </radio-group>
+    <view class="usermotto"> 
+       <text class="iconfont icon-riqi fl"></text>  
+          <picker bindchange='bindPickerDate' mode='date' start="1991-01-01" end="2017-12-30" value='{{data}}'>
+               <view>
+                  <view class="input-master"></view>
+               </view>  
+             <input class='input-s'  name="number" type='date' value='{{date}}' bindfocus='bindHideKeyboard'  placeholder='请选择出生日期'/> 
+          </picker>
+     </view> 
+
+  <view class="btn-area">
+    <button formType="submit">注册</button>
+  </view>
+</form>

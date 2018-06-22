@@ -1,0 +1,27 @@
+/* pages/user/user.wxss */
+
+@import "/common/style/stylesheet.wxss";
+Page{
+  background-color: #eee;
+}
+.user-info{
+  width: 100%;
+  padding:40rpx 0 ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+.avatar{
+  width:160rpx;
+  height:160rpx;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  border:1px solid #eee;
+}
+.name{
+  font-size: 30rpx;
+  text-align: center;
+}

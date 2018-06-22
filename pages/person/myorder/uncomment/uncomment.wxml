@@ -1,0 +1,58 @@
+<!--pages/person/myorder/uncomment.wxml-->
+<!-- <form bindsubmit="bindFormSubmit"> -->
+  <view>
+       <view id="hg-box-bottom">
+      <button class="block" form-type="submit" bindtap="reset">提交</button>
+  </view> 
+
+  <view class="content">
+      <view class="comment-list"  wx:for='{{goodLists}}' wx:for-item="good" data-id="{{good.id}}" wx:for-index='idx'>
+          <view class="mall center">
+            <image class="fl"  src="{{url}}{{good.img_src}}"></image>
+            <view class="box center">
+            <view bindtap="starTap" data-index="{{index}}" data-sat="{{idx}}"  class="star" wx:for="{{good.starList}}" wx:key="index">
+              <image src="{{item}}"></image>
+            </view>
+            </view>
+          </view>
+
+          <view class="malls2">
+              <view class="box1">
+                  <view class="page-section">
+                      <view class="textarea-wrp">
+                        <textarea auto-focus="true" style="height: 3em"  name="textarea"  value="{{good.content}}"   bindinput="bindTextAreaBlur" data-sat="{{idx}}"  placeholder="留下您对宝贝的评价吧" />
+                        <image class="{{isShows?'del true':'del hideTrues'}}" bindtap="deled"  src="/images/shanc.jpg"></image>
+                      </view>
+                  </view>
+              </view>
+
+              <view class="box2">
+                <view class="table">
+                         <view class="weui-cell__bd">
+                            <view class="weui-uploader">
+                              <view class="weui-uploader__hd">
+                              </view>
+                              <view class="weui-uploader__bd">
+                                <view class="weui-uploader__files">
+                                  <block wx:for="{{good.pics}}" wx:for-item="image">
+                                    <view class="weui-uploader__file">
+                                      <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                                    </view>
+                                  </block>
+                                </view>
+                                <!-- <-- isShow 这个是判断是否进行触发点隐藏操作-->
+                                <view class="weui-uploader__input-box {{isShow?'true':'hideTrue'}}">
+                                  <view class="weui-uploader__input" bindtap="chooseImage" data-sat="{{idx}}"></view>
+                                </view>
+                              </view>
+                            </view>
+                          </view> 
+
+                </view>
+              
+              </view>
+          </view>
+      </view>
+  </view>
+  </view>
+<!-- </form> -->

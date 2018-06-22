@@ -1,0 +1,96 @@
+/* pages/user/user.wxss */
+
+@import "/common/style/stylesheet.wxss";
+Page{
+  background-color: #eee;
+}
+.user-info{
+  width: 100%;
+  padding:40rpx 0 ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+.avatar{
+  width:160rpx;
+  height:160rpx;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  border:1px solid #eee;
+}
+.name{
+  font-size: 30rpx;
+  text-align: center;
+}
+.history{
+   width: 100%;
+  background-color: #fff;
+}
+#order_all{
+    font-size: 28rpx;
+    font-weight: normal;
+    padding: 30rpx 12px;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+.icon-jiantou{
+  position: absolute;  
+  right:0;
+  top:32rpx;
+  width: 20px;
+  height: 20rpx;
+  color: rgb(25, 137, 209);
+}
+.order-list-wrap {
+    overflow: hidden;
+    padding: 0 10rpx;
+    
+}
+.order-list {
+    width: 100%;
+    margin: 28rpx 0 0 0;
+    padding: 0;
+    font-size: 24rpx;
+}
+.order-list-item{
+    float: left;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 28rpx;
+    text-align: center;
+}
+.icons{
+    font-size: 50rpx;
+    color: #959595;
+}
+.pernson{
+    font-size: 28rpx;
+    font-weight: normal;
+    padding: 28rpx 20rpx;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+.icon-qiandao4{
+      color: #1989D1;
+}
+.icon-youhuiquan1{
+    color: #eb270d;
+}
+.icon-333{
+      color: #65d6aa;
+}
+.historys{
+  margin-top: 10rpx;
+   width: 100%;
+  background-color: #fff;
+}
+.mui-media-body{
+  width: 100%;
+  height: 100%;
+}

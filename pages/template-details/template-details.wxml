@@ -1,0 +1,196 @@
+<import src="/wxParse/wxParse.wxml" />
+<view class='container'>
+    <view id="maintabs" class="mui-bar mui-bar-tab">
+        <view class="item-comen">
+            <view class="iconfont kf icon-kefu"></view>
+            <view>客服</view>
+        </view>
+        <view class="item-comen"  bindtap="gwcs">
+            
+            <view class="iconfont gwc   icon-cart" >
+              <text class="mui-badge">{{nums}}</text>
+            </view>
+            <view >购物车</view>
+        </view>
+        <view class="item-comen  jia" bindtap="btnSave">加入购物车
+       
+        </view>
+        <view class="item-comen  lj" bindtap='btnshop'>立即购买</view>
+    </view>
+     <view class="content" data-id ="{{shopinf.id}}">
+        <view class="slider">
+          <swiper  class="swiper-box"   catchtap="onSwiperTap" indicator-dots="{{true}}" indicator-color="#fff" indicator-active-color="#aaa" autoplay="true"  bindchange="bindchange"  style="height:{{imgheights[current]}}rpx;" >
+          <swiper-item class="slider-item" wx:for="{{shopinf.img}}" wx:for-item="itemed"  >
+              <image src ="{{urls}}{{itemed.src}}" mode="aspectFit" bindload="imageLoad"  style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;"  ></image>     
+         
+          </swiper-item>
+        </swiper>
+     </view>
+      <view class="view-title">
+          <text class=" texts">{{shopinf.title}}</text>
+          <view>
+              <text class=" price">￥{{shopinf.salePrice}}</text><text class ="texts"  wx:if="{{shopinf.stock>=0}}">库存数量\t{{shopinf.stock}}</text>
+          </view>
+          <text class="mui-ellipsis texts">快递{{shopinf.fastfree}}</text>
+     </view> 
+
+     <view class = "coupon-cell" bindtap='chooseS'hidden="{{hidden}}">
+        <view class="table-view" >
+             <text class="middle"><text class=" iconfont  colors icon-youhuiquan1"></text><text class="yhj">领取优惠券</text> </text><text class=" iconfont iconfonts  icon-jiantou"></text> 
+        </view>
+     </view>
+
+  
+      <view class="view-cont" wx:for="{{glassesType}}" wx:for-item="Attr">
+            <view class="mui-table-view" wx:if="{{!Attr.name}}" data-index="{{index}}" bindtap='chooseSezi'>
+              <text wx:if="{{index=='add'}}" class="color">add</text>
+              <text wx:if="{{index=='add'&&(sltData.add === 0 || sltData.add) }}"> 
+                <text>:\t{{vals}}</text><text>{{sltData.add}}</text>
+              </text>
+
+              <text wx:if="{{index=='ball'}}" class="color">球镜</text>
+              <text wx:if="{{index=='ball'&&(sltData.ball === 0 || sltData.ball) }}"> 
+                <text>:\t{{vals}}</text><text>{{sltData.ball}}</text>
+              </text>
+
+              <text wx:if="{{index=='pole'}}" class="color">柱镜</text>
+              <text wx:if="{{index=='pole'&&(sltData.pole === 0 || sltData.pole) }}"> 
+                <text>:\t{{vals}}</text><text>{{sltData.pole}}</text>
+              </text>
+              <text class=" iconfont iconfonts icon-jiantou"></text>
+            </view>
+                <view class="mui-table-view" wx:else data-index="{{index}}" bindtap='chooseSezi'>
+                   <text class="color">{{Attr.name}}\t<text></text></text> 
+                   <text wx:if="{{sltData[index]}}"><text>:\t{{vals}}</text>{{sltData[index]}}</text>
+                   <text class=" iconfont iconfonts  icon-jiantou"></text> 
+                </view>
+      </view>
+      <view class="view-cont">
+           <view class ="mui-table-view">
+              <text>产品说明</text>
+               <text class=" iconfont iconfonts icon-jiantou"></text> 
+           </view>
+      </view>
+     <view class ="evaluate">
+        <view class="hg-info-wrap">
+          <text class="shu-l"></text>
+          <image class="img"  src="/images/icon-comment.png"></image>评价
+          <text class="shu-r"></text>
+        </view>
+        <view class="hg-detail-cont">
+            <view class="hg-title">商品评价</view>
+             <view class="hg-cont-box"  wx:if="{{commentList == ''}}" >
+              此商品暂无评价
+            </view>
+            <view class="hg-cont-box" wx:else>
+                <view class="hg-cont-top">
+                    <image class="mui-media-object" src="{{commentList.vip_img}}"/>
+                    <text class="hg-username">{{commentList.vip_name}}</text>
+                    <view class="hg-start-box">
+                        <block  wx:for="{{one_1}}">
+                            <image class="hg-icon hg-icon-start " src='/images/wjx.jpg'></image>
+                        </block> 
+                        <block wx:for="{{two_1}}">  
+                                <image class="hg-icon hg-icon-start" src='/images/wxjh.jpg'></image>  
+                        </block>
+                    </view>
+                </view>
+                <view class="hg-comment-cont">
+                    <view class="hg-comment-time">{{commentList.ctime}} </view>
+                    <view class="hg-comment-txt" style="color: #333;">{{commentList.content}}</view>
+                </view>
+                <view class="hg-shop-box">
+                    <view class="hg-shop-list"wx:for="{{commentList.attachment}}" wx:for-item="imgs">
+                        <view>
+                            <image class="hg-list-img" src="{{urls}}{{imgs}}"></image> 
+                        </view>
+                    </view>
+                </view>
+                <view class="hg-button-box">
+                    <text class="hg-button" bindtap="watched">查看全部评论</text>
+                </view>
+            </view>
+           
+
+        </view>
+        <view class="hg-info-wrap">
+                <view class="hg-info-wrps">
+                    <text class="shu-l"></text>图文详情
+                    <text class="shu-r"></text>
+                     
+                </view> 
+               
+                <view class="hg-detail-cont">
+                 <template is="wxParse" data="{{wxParseData:mediainf.nodes}}"/>
+                </view>  
+        </view> 
+     </view>
+     </view>
+
+
+</view>
+
+<view >
+  <view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal' ></view>
+  <view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+   <view class="All"><view class="shoppz"></view><icon type="cancel" class="cancel"  size="24" color="#aaa" bindtap="cancel"/></view>   
+      <view class="views" wx:for="{{glassesType}}" wx:for-item="item">
+              
+           <radio-group wx:if="{{!item.name}}" class="{{tabGTIndex!==index? 'hide' : 'show'}}" data-index="{{index}}">
+            <view class="shoppz"  wx:if="{{index=='ball'}}">球镜</view>
+            <view class="shoppz"  wx:if="{{index=='pole'}}">柱镜</view>
+            <view class="shoppz"  wx:if="{{index=='add'}}">add</view>
+            <label class="radio" wx:for="{{item}}" wx:for-item="list" bindtap="selevent" data-index="{{index}}" data-item='1'>
+              <radio checked='{{list.checked?true:false}}' value="{{list.val}}" />{{list.val}}
+          </label> 
+        </radio-group> 
+        <scroll-view  scroll-y="true" lower-threshold="200"   wx:else class="{{tabGTIndex!==index? 'hide viewShow ' : ' viewShow show'}}" data-index="{{index}}">
+              <view>{{item.name}}</view>
+             <view  wx:for="{{item.data}}" wx:for-item="data" bindtap="selevent" data-index="{{index}}" data-item='2'> 
+               
+                <view  class="{{data.checked?' bgcolor actives':'bgcolor'}}">{{data.val}}</view>
+             </view> 
+        </scroll-view>
+        <view class="complate" bindtap='completed'>确定</view>
+      </view>
+      </view>
+    
+      </view>
+
+
+
+  <!-- </view> -->
+<!-- </view> -->
+
+<!-- <view> -->
+
+<view>
+  <view class='maskLayer' wx:if="{{chooseS}}" bindtap='hideModals' ></view>  
+  <view class ="choose" wx:if="{{chooseS}}" animation='{{animationDatas}}'>
+       <view class="complate" bindtap='oppens'>确定</view>
+      <scroll-view class="modal-box" scroll-y="true" lower-threshold="200">
+              <view class="modal-body"> 
+                  <view class="list"   wx:for="{{yuj}}" wx:for-item="y" data-id ="{{y.cid}}" > 
+                        <view class="info-box">
+                            <view class="coupon-money">
+                                <view class="lay of">
+                                    {{y.sign}}<text style = "font-size:44rpx;">{{y.minus}}</text>
+                                </view>
+                                <view class="lay  rights">
+                                    <view class="tit">
+                                        <text class="right">{{y.name}}</text><text>{{y.info}}</text>
+                                    </view>
+                                    <view class="demand">{{y.vt.s}}至{{y.vt.s}}</view>
+                                </view>
+                            </view>
+                        </view> 
+                        <view class="{{y.status==1 ?' active get-btn':'get-btn' }}" bindtap='youhuij{{y.status}}' data-index="{{index}}" data-id="{{y.cid}}">
+                        <view wx:if="{{y.is_received == 1}}" class = "active">已领取</view>
+                        <view wx:elif="{{y.is_received == 0}}">未领取</view>
+                        </view>
+                  </view>
+              </view>
+      </scroll-view>     
+  </view>
+
+</view>

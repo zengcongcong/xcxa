@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/myMeat/myMeat",
+    "pages/login/login",
+    "pages/template-details/Customer/Customer",
+    "pages/register/register",
+    "pages/person/Address/edit/edit",
+    "pages/usercenter/usercenter",
+    "pages/person/myorder/refundDetail/refundDetail",
+    "pages/person/myorder/refund/refund",
+    "pages/person/detail/detail",
+    "pages/template-details/template-details",
+   
+    "pages/myCart/myCart",
+  
+    "pages/person/person",
+    "pages/person/myorder/myorder",
+    "pages/myCart/Order/Order",
+    "pages/logs/logs",
+    "pages/newProduct/newProduct",
+    "pages/person/refundList/refundList",
+    "pages/person/myorder/uncomment/uncomment",
+   
+
+    "pages/person/Address/Address",
+
+    "pages/Coupon/Coupon",
+    "pages/registerList/registerList",
+    "pages/comment/comment",
+    "pages/index/sign/sign",
+    "pages/demos/demos",
+    "pages/person/Address/add/add"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "selectedColor": "#3cc51f",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "borderStyle": "#fff",
+    "position": "bottom",
+    "selectedColor": "#EB270D",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/sy.png",
+        "selectedIconPath": "images/sy1.png"
+      },
+      {
+        "pagePath": "pages/myMeat/myMeat",
+        "text": "分类",
+        "iconPath": "images/fl.png",
+        "selectedIconPath": "images/fl1.png"
+      },
+      {
+        "pagePath": "pages/myCart/myCart",
+        "text": "购物车",
+        "iconPath": "images/gwc.png",
+        "selectedIconPath": "images/gwc1.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "images/wd.png",
+        "selectedIconPath": "images/wd1.png"
+      }
+    ]
+  }
+}

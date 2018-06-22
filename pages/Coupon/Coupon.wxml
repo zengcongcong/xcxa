@@ -1,0 +1,85 @@
+<!--pages/Coupon/Coupon.wxml-->
+
+<!--pages/Coupon/Coupon.wxml-->
+<view class='containers'>
+      <view id="hgControl" class="mui-slider-indicator mui-segmented-control">
+          <view class=" mui-control-item {{_num==1?'active':''}}" catchtap="menuClick" data-index="1">未使用</view>  
+          <view class="mui-control-item    {{_num==2?'active':' '}}" catchtap="menuClick" data-index="2">已使用</view>  
+          <view class="mui-control-item   {{_num==3?' active':''}}" catchtap="menuClick" data-index="3">已过期</view>
+      </view> 
+      <scroll-view class="{{showView ==1?'modal-box show':'modal-box hide'}}" scroll-y="true" lower-threshold="200">
+              <view class="modal-body">
+                  <view class="list" wx:for="{{lists}}" wx:for-item="item" data-id="{{item.cid}}"> 
+                        <view class="info-box">
+                            <view class="coupon-money">
+                                <view class="lay of">
+                                    {{item.sign}}<text>{{item.minus}}</text>
+                                </view>
+                                <view class="lay  rights">
+                                    <view class="tit">
+                                        <text>{{item.name}} </text><text>{{item.info}}</text>
+                                    </view>
+                                    <view class="demand">{{item.vt.s}}至{{item.vt.e}}</view>
+                                </view>
+                            </view>
+                        </view> 
+                        <view class="get-btn">
+                            <text>{{which}}</text>  
+                        </view>
+                  </view>
+              </view>
+      </scroll-view>    
+       <scroll-view class="{{showView == 2?'modal-box show':'modal-box hide'}}" scroll-y="true" lower-threshold="200">
+              <view class="modal-body">
+                  <view class="list" wx:for="{{lists2}}" wx:for-item="item" data-id="{{item.cid}}"> 
+                        <view class="info-box">
+                            <view class="coupon-money">
+                                <view class="lay of">
+                                    {{item.sign}}<text>{{item.minus}}</text>
+                                </view>
+                                <view class="lay  rights">
+                                    <view class="tit">
+                                        <text>{{item.name}} </text><text>{{item.info}}</text>
+                                    </view>
+                                    <view class="demand">{{item.vt.s}}至{{item.vt.e}}</view>
+                                </view>
+                            </view>
+                        </view> 
+                        <view class="get-btn">
+                            <text>已使用</text>  
+                        </view>
+                  </view>
+              </view>
+      </scroll-view>    
+     <scroll-view class="{{showView == 3?'modal-box show':'modal-box hide'}}" scroll-y="true" lower-threshold="200">
+              <view class="modal-body">
+                  <view class="list" wx:for="{{lists3}}" wx:for-item="item" data-id="{{item.cid}}"> 
+                        <view class="info-box">
+                            <view class="coupon-money">
+                                <view class="lay of">
+                                    {{item.sign}}<text>{{item.minus}}</text>
+                                </view>
+                                <view class="lay  rights">
+                                    <view class="tit">
+                                        <text>{{item.name}} </text><text>{{item.info}}</text>
+                                    </view>
+                                    <view class="demand">{{item.vt.s}}至{{item.vt.e}}</view>
+                                </view>
+                            </view>
+                        </view> 
+                        <view class="get-btn">
+                            <text>已过期</text>  
+                        </view>
+                  </view>
+              </view>
+      </scroll-view>  
+      <view id="content_empty" hidden="{{hidden}}">
+            <view class="tip-empty-box">
+                <image src ="/images/empty-coupon.png"></image>
+                <view class="tip-empty-txt">您还没有相关的优惠券</view>
+            </view>
+
+      </view>
+     
+</view>
+ 

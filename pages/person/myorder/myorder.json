@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "全部订单",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 1,
+  "backgroundTextStyle": "dark"
+}

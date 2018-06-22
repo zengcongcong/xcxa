@@ -1,0 +1,56 @@
+<!--pages/user/user.wxml-->
+<view  class="container">
+    <view  class="user-info">
+      <image class ="avatar" src="{{avatarUrl}}"></image>
+      <text class="name">{{nickName}}</text>
+    </view>
+    <view class="history">
+        <view id="order_all" catchtap="daifuk" data-index="0">
+            <text class="mui-navigate-right mall-right-arrow">我的订单</text><text class=" iconfont icon-jiantou"></text>
+        </view>
+        <view class="order-list-wrap">
+            <view class="order-list">
+                <view class="order-list-item" catchtap="daifuk" data-index="1">
+                   <text class="iconfont  icons icon-daifukuan-l" ></text>
+                   <view class="mui-media-body">待付款</view>
+                </view>
+                  <view class="order-list-item" catchtap="daifuk" data-index="2" >
+                   <text class="iconfont icons   icon-daifahuo1"></text>
+                   <view class="mui-media-body"  >待发货</view>
+                </view>
+                <view class="order-list-item" catchtap="daifuk" data-index="3" >
+                  <text class="iconfont icons   icon-daishouhuo"></text>
+                  <view class="mui-media-body" >待收货</view>
+                </view>
+                <view class="order-list-item"  catchtap="daifuk" data-index="4" >
+                  <text class="iconfont icons   icon-daipingjia"></text>
+                  <view class="mui-media-body" >待评价</view>
+                </view>
+                <view class="order-list-item" catchtap="tuikuan" >
+                  <text class="iconfont icons   icon-daifukuan2"></text>
+                  <view class="mui-media-body">退款/售后</view>
+                </view> 
+            </view>
+        </view> 
+    </view>
+    <view class="historys">
+        <view class="pernson">我的服务</view>
+        <view class="order-list-wrap">
+            <view class="order-list">
+                 <view class="order-list-item" bindtap='boda'>
+                    <text class="iconfont  icons icon-qiandao4"></text>
+                   <view class="mui-media-body">联系客服</view>
+                </view> 
+                 <view class="order-list-item" bindtap="youhui">
+                    <text class="iconfont  icons  icon-youhuiquan1"></text>
+                   <view class="mui-media-body" >优惠券</view>
+                </view>
+                <view class="order-list-item" bindtap="ardess">
+                    <text class="iconfont  icons   icon-333"></text>
+                   <view class="mui-media-body">收货地址</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+

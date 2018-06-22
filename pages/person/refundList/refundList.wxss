@@ -1,0 +1,169 @@
+/* pages/person/refundList/refundList.wxss */
+.content{
+  background-color: #efeff4;
+   font-size: 28rpx;
+}
+.hg-list-cell {
+    background-color: #fff;  
+    position: relative;
+    margin: 10rpx 0;
+}
+.hg-list-cell:first-child{
+   margin: 0rpx 0   10rpx  0;
+
+}
+.hg-list-view {
+    overflow: hidden;
+}
+
+.hg-list-view {
+    position: relative;
+    padding: 12rpx 24rpx;
+}
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+   
+  color: rgb(253, 39, 13);
+}
+.hg-list-top{
+  border-bottom: 1px solid #ccc}
+  .list-btn{
+    border-top: 1px solid #ccc}
+
+.mui-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.sublist {
+    width: 95%;
+    height: 100%;
+    padding: 10rpx 14rpx;
+    overflow: hidden;
+    margin-bottom: 10rpx;
+    position: relative;
+}
+.img {
+    height: 160rpx;
+    width: 166rpx;
+    margin-right: 30rpx;
+}
+ .mui-media-body {
+    overflow: hidden;
+}
+.mui-ellipsis {
+white-space:nowrap;
+text-overflow:ellipsis;
+
+}
+.miaoshu {
+float:left;
+}
+.miaoshu {
+margin-top:0;
+width: 75%;
+/* margin-bottom:18rpx; */
+color:#8f8f94;
+}
+.hg-numbox-cell {
+position: relative;
+color:#000;
+float:right;
+}
+
+.shop-price{
+   position: relative; 
+   padding-top: 22rpx; 
+   width: 100%;
+   height: 100%;
+  text-align: left;
+  left: 0;
+  font-size: 28rpx;
+  color: rgb(235, 39, 13);
+}
+.shop-price .lee{
+  position: absolute;
+  left: 0;
+}
+.shop-price .yuan{
+  height: 100%;
+  /* position: absolute; */
+  margin-left: 27rpx;
+}
+.align-left{
+  width: 100%;
+  height: 100%;
+  padding-top: 20rpx;
+}
+.ttt{
+  position: relative;
+  top:-10rpx;
+  color: #f0ad4e;
+}
+.hg-list-btn {
+    text-align: right;
+    margin-top: -10rpx;
+    background-color: #fff;
+    position: relative;
+    padding: 18rpx 24rpx;
+    overflow: hidden;
+    margin-right: -20rpx;
+}
+.list-btn{
+    text-align: right;
+    margin-top: -10rpx;
+    background-color: #fff;
+    position: relative;
+    padding: 18rpx 24rpx;
+    overflow: hidden;
+    margin-right: -20px;
+}
+.mui-ellipsis-2 {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal!important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.del{
+    color: rgb(152, 152, 152);
+    padding: 8rpx 30rpx;
+    border-radius:46rpx;
+    border: 1px solid rgb(152, 152, 152);
+    background-color: #fff;
+    display: inline-block;
+    margin-right: 30rpx;
+}
+view {
+word-break:break-all;
+overflow:auto;
+
+}
+
+.hg-detail-numbox{
+  position: relative;
+  right: 0;
+}
+
+#content_empty .tip-empty-box {
+    text-align: center;
+    padding: 50rpx 0px;
+}
+#content_empty .tip-empty-box image{
+    width: 400rpx;
+    height:350rpx;
+    display: block;
+    margin: 0 auto;
+}
+.tip-empty-txt{
+
+  padding-top: 30rpx;
+  font-size: 28rpx;
+  margin-bottom: 10px;
+  color: #8f8f94;
+}

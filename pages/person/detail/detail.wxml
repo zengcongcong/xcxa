@@ -1,0 +1,129 @@
+<view class="container">
+          
+  <view class="hg-sub-list" wx:for='{{shopinf}}'wx:for-item="item" >
+      <view class="hg-link"    data-id="{{item.id}}" data-attr_id = "{{item.attr_id}}">
+           <image class="hg-img mui-pull-left"src="{{url}}{{item.img_src}}"></image> 
+          <view class="mui-media-body">
+              <view class="mui-ellipsis-3 hg-list-title">{{item.title}}</view>
+               <view class="flex-box-align-left mall-cont-detail">
+                  <view class="miaoshu  mui-ellipsis-3">
+                    {{item.desc_short}}设定的凯撒大帝双卡双待了快速打开了深刻的老师看到了开始就打开了打开开始了大家 1</view> <view class="hg-numbox-cell">
+                  
+                  </view>          
+              </view> 
+               <view class="shop-price">
+                  <text class="colored">￥<text>{{item.price}}元</text></text><text class="rights">×{{item.num}}</text>
+              </view> 
+          </view>
+      </view> 
+
+      <view class="shop-status" wx:if="{{orderinf.order_status != 1}}">
+          <text class="hg-btn" wx:if="{{item.status == 0}}" bindtap="tuikuan" data-id="{{item.od_id}}">退款</text>
+          <text class="hg-btn" wx:if="{{item.status == 1}}" bindtap="jjtk">退款中</text>
+          <text class="hg-btns" wx:if="{{item.status == 2}}" bindtap="jjtk" data-id= "{{item.od_id}}">拒绝退款</text>
+          <text class="hg-btns" wx:if="{{item.status == 3}}" >退款完成</text>
+          <text class="hg-btns" wx:if="{{item.status == 4}}" >已撤销退款</text>
+      </view>
+  </view>
+  <view class="status" > 
+    <view  wx:if="{{orderinf.order_status != ''|| orderStatus != 'undefined'|| orderStatus != null}}">
+       <text class="order-title">订单状态：</text>  
+      <text class="fast-status" wx:if="{{orderinf.order_status == 1}}">待付款</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 2}}">已过期</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 3}}">未发货</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 4}}">待发货</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 5}}">待评价</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 6}}">已评价</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 7}}">退款中</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 8}}">已退款</text> 
+      <text class="fast-status" wx:if="{{orderinf.order_status == 9}}">已取消</text> 
+    
+    </view>
+    <!-- <view>
+        <text class="order-title" wx:if="{{orderinf.order_status != ''|| orderStatus != 'undefined'|| orderStatus != null}}">快递单号:</text>  
+        <text>{{orderinf.order_code}}</text>
+    </view> -->
+    <view style="padding-right: 12rpx;">
+        <view class="faster" wx:if="{{orderinf.user_name != null && orderinf.user_mobile  !=null}}"> 
+          <text class="{{!orderinf.user_name && !orderinf.user_mobile?'hide order-title':'order-title'}}" >收货信息：</text>  
+          <text class="fls">{{orderinf.user_name}}</text> <text class="frs">{{orderinf.user_mobile}}</text>
+        </view>
+        <view wx:if="{{orderinf.user_address != ''}}">
+          <text  class="{{orderinf.user_address == ''?'hide order-title':' order-title'}}" >收货地址：</text> 
+          <text>{{orderinf.user_address}}</text>
+        </view> 
+    </view>
+  </view>
+  
+  <view class="short">
+     <view  class="list">
+        <view>
+            <text class="order-title">订单编号：</text>
+            <text class="order-code">{{orderinf.order_code}}</text>
+        </view>
+        <view>
+            <text class="order-title">下单时间：</text>
+            <text class="order-code">{{orderinf.order_time}}</text>
+        </view>
+        <view wx:if="{{billinf.bill_time != ''}}">
+            <text class="order-title">开票时间：</text>
+            <text class="order-code">{{billinf.bill_time}}</text>
+        </view>
+        <view wx:if="{{billinf.bill_price != ''}}">
+          <text class="order-title">开票金额：</text>
+            <text class="order-code">{{billinf.bill_price}}</text>
+        </view>
+        <view wx:if="{{billinf.type == 0}}">
+            <view >
+              <text class="order-title">用户姓名：</text>
+              <text class="order-code">{{billinfo.name}}</text>
+            </view>
+            <view >
+              <text class="order-title">手机号码</text>
+              <text class="order-code">{{billinfo.mobile}}</text>
+            </view>
+             <view >
+              <text class="order-title">邮箱地址:</text>
+              <text class="order-code">{{billinfo.email}}</text>
+            </view>
+        </view>
+          <view wx:if="{{billinf.type == 1 }}">
+              <view>
+                <text class="order-title">企业抬头:</text>
+                <text class="order-code">billinfo.name</text>
+            </view> 
+             <view>
+                <text class="order-title">纳税人识别号:</text>
+                <text class="order-code">{{billinfo.tax_id}}</text>
+            </view> 
+            <view>
+                <text class="order-title">手机号码:</text>
+                <text class="order-code">{{billinfo.mobile}}</text>
+            </view> 
+             <view>
+                <text class="order-title">邮箱地址:</text>
+                <text class="order-code">{{billinfo.email}}</text>
+            </view>
+            <view>
+                <text class="order-title">开户银行:</text>
+                <text class="order-code">{{billinfo.bank_name}}</text>
+            </view>
+            <view>
+                <text class="order-title">银行账号:</text>
+                <text class="order-code">{{billinfo.bank_account}}</text>
+            </view>
+            <view>
+                <text class="order-title">用户地址:</text>
+                <text class="order-code">{{billinfo.address}}</text>
+            </view>
+            <view>
+                <text class="order-title">电话号码:</text>
+                <text class="order-code">{{billinfo.tel}}</text>
+            </view>
+        </view>
+     </view>
+  </view>
+
+
+
+</view>

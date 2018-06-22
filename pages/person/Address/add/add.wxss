@@ -1,0 +1,186 @@
+
+@import "/common/style/stylesheet.wxss";
+
+
+page{
+    background-color: #efeff4;
+}
+mui-content{
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  z-index: 333;
+  overflow-x: hidden;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.order-info-wrap{
+  width: 100%;
+  min-height: 100%;
+}
+.title {
+    font-size: 28rpx;
+  
+    height: 65rpx;
+    line-height: 65rpx;
+    /* padding:20rpx 0 0  24rpx; */
+    padding-left: 24rpx;
+}
+
+.mui-pull-left {
+    float: left;
+    width: 80%;
+    /* padding-top: 10rpx; */
+}
+.mui-pull-right {
+    float: right;
+}
+.btn-save {
+    color: rgb(25, 137, 209);
+    background-color: #FFF;
+    font-size: 26rpx;
+    line-height: 60rpx;
+
+}
+.div-title{
+  height: 66rpx;
+  line-height: 45rpx;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.mui-input-group {
+     position: relative;
+    padding: 0 24rpx;
+    font-size: 24rpx;
+}
+
+.order-info-wrap{
+    background-color: #fff;
+}
+.mui-table-view-cell{
+    font-size: 26rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+}
+.mui-table-view{
+      padding: 0 20rpx;
+}
+#showCityPicker3{
+    color: rgb(152, 152, 152);  
+}
+.icons{
+  position: absolute;  
+  right:0;
+  top:1rpx;
+  width: 20px;
+  height: 20rpx;
+  color: rgb(152, 152, 152)!important;
+}
+.mui-input-row{
+  border-top: 1px solid #ccc;
+  height: 65rpx;
+  line-height: 65rpx;
+}
+.hg-set-default {
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    height:65rpx;
+    position: relative;
+    line-height:65rpx;
+    padding: 0 20rpx;
+    background-color: #fff!important;
+}
+.mui-pull-left input {
+  width: 100%;
+  background-color: #fff;
+}
+#detail-address{
+  width: 100%;
+}
+#detail-address,#username,#mobile{
+  height: 65rpx;
+  line-height: 65rpx;
+}
+.mui-pull-left .gis{
+  position: absolute;
+  left: 0;
+  top:0;
+}
+
+.section {
+  padding-top: 20rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+   color: #aaa; 
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.citypicker{
+    position: fixed;
+    left: 0px;
+    font-size: 30rpx;
+    width: 100%;
+    z-index: 999;
+    opacity: 1;
+      background-color: #eee;  
+    border-top: solid 1px #fff;
+    bottom: 0px;
+}
+.cityheader{
+    height: 10rpx;
+    font-size: 28rpx;
+    padding-top:20rpx;
+    opacity: 1;
+    color: rgb(25, 137, 209);
+  
+}
+ .city-cancel{
+  position:absolute;
+    left:100rpx;
+}
+.city-true{
+  position:absolute;
+  right:100rpx;
+} 
+picker-view-column{
+  margin-top: 90rpx;
+ 
+}
+.tupian image{
+  width: 30rpx;
+  height: 30rpx;
+  right:30rpx;
+  top:20rpx;
+  position:absolute;
+}
+
+.show{
+display: block;
+}
+.tupian {
+position: relative; 
+}
+.tupian  .iconfont{
+  float:right;
+  right:0;
+  top:-60rpx;
+  position: absolute; 
+  width: 30rpx;
+  height: 40rpx;
+}
+.color{
+  color:red;
+}
+button::after {
+border: none;
+}

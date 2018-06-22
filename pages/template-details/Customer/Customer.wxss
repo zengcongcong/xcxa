@@ -1,0 +1,114 @@
+@import "/common/style/stylesheet.wxss";
+@import "/common/style/pickerview.wxss";
+.modal-box {
+position:fixed;
+width:100%;
+height:100%;
+top:0px;
+z-index: 999999999;
+overflow:hidden;
+}
+
+.modal-body {
+position:relative;
+
+}
+.actives{
+  display: block;
+}
+.hides{
+  display: none;
+}
+.search-box {
+width:100%;
+margin-top:10rpx;
+position: relative;
+}
+.search-txt {
+width:70%;
+height:68rpx;
+margin:0 auto;
+position:relative;
+border:solid 1px #ddd;
+border-radius:45px;
+display: flex;
+background-color:#fff;
+
+}
+#search {
+width: 100%;
+padding-left:60rpx;
+font-size:22rpx;
+height:68rpx;
+line-height:68rpx;
+
+}
+.btn-search {
+position:absolute;
+text-align: center;
+top:30%;  
+height: 68rpx;
+font-size: 30rpx;
+margin-left: 15rpx;
+color: #333
+}
+.center{
+    /* margin-left: 20rpx; */
+}
+.sosuo{
+  position: absolute;
+  font-size: 32rpx;
+  top:10rpx;
+  right:25rpx;
+  color: rgb(25, 137, 209);
+}
+.shoplist{
+  height: 80%;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  overflow: hidden;
+  /* background-color: pink; */
+}
+.activess{
+background-color: #eaeaea;
+}
+.colorsed{
+   border-bottom: 1px solid #bbb; 
+}
+.big{
+  width: 100%;
+  position: relative;
+  z-index: 99999999999;
+}
+.list-info-d,.list-info-x{
+  position: relative;
+ padding: 10rpx 20rpx;
+}
+.list-info-x{
+  padding: 16rpx 30rpx;
+  background-color: #eee;
+}
+.jt{
+  position: absolute;
+  top:20rpx;
+  right:20rpx;  
+  color: #bbb;
+}
+.list-info-d{
+  background-color: #fff;
+  height: 68rpx;
+  line-height:  68rpx;
+}
+page{
+    background-color: #efeff4;
+}
+.slted{
+position:relative;
+color: rgb(243, 144, 27);
+font-size: 30rpx;
+padding: 10rpx 24rpx 20rpx;
+}
+.complate{
+  background-color: #fff;
+  color: rgb(152, 152, 152);
+}

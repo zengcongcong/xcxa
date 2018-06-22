@@ -1,0 +1,38 @@
+ <!--pages/person/myorder/comment/comment.wxml-->
+<scroll-view scroll-y="true" class="mui-scroll-wrapper"   lower-threshold="200" bindscrolltolower="srcollHander" style="height:100%"> 
+    <view class="box">
+    
+        <view class="item" wx:for="{{lists}}" wx:for-item="item" data-index='{{index}}'>
+            <view class="top">
+                <image class="img" src="{{item.vip_img}}"></image>
+                <text class="username">{{item.vip_name}}</text>
+                <block  wx:for="{{one_1[index]}}" wx:for-item="imglist">
+                  <image class="hg-icon hg-icon-start " src='/images/wjx.jpg'></image>
+                </block>
+                 <block wx:for="{{two_1[index]}}">  
+                      <image class="hg-icon hg-icon-start" src='/images/wxjh.jpg'></image>  
+                </block>
+            </view>
+            <view class="cont">
+                <view class="time">{{item.ctime}}\t{{item.leix}}</view>
+                <view class="tex">{{item.content}}</view>
+            </view>
+
+            <view class="shop">
+                <view class="shop-list">
+                    <view class="lists" wx:for="{{item.attachment}}" wx:for-item="itemed">
+                        <image class="imgs" src="https://dev.unionglasses.com/{{itemed}}"></image>
+                    </view>
+                </view>
+            </view>
+
+            <view class="reply" wx:for="{{item.reply}}" wx:for-item="itemedss">
+                <view class="subject" wx:if="{{lists.reply != ''}}" > 商家回复</view>
+                <view class="item-time" >{{itemedss.c1}}</view>
+                <view class="item-content">{{itemedss.c0}}</view>
+              </view>
+            
+        </view>
+        </view>
+
+</scroll-view>
